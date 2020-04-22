@@ -1,5 +1,7 @@
 package mx.unam.ciencias.myp;
 
+import java.util.Arrays;
+
 /**
  * Clase para representar una lista de profesores.
  * Extiende a ComponenteLista.
@@ -35,7 +37,7 @@ public class ListaProfesores implements ComponenteLista {
      * Ordena el arreglo recibido usando SelectionSort.
      * @param arreglo el arreglo a ordenar.
      */
-    public Profesor[] selectionSort(Profesor[] arreglo) {
+    public void selectionSort(Profesor[] arreglo) {
         for (int i = 0; i < arreglo.length; i++) {
             int m = i;
             for (int j = i + 1; j < arreglo.length; j++)
@@ -65,6 +67,7 @@ public class ListaProfesores implements ComponenteLista {
                     continue;
                 else {
                     listaProfesores[i] = (Profesor)componente;
+                    selectionSort(listaProfesores);
                     if (i == listaProfesores.length - 1)
                         estaLlena = true;
                     return;
@@ -86,6 +89,7 @@ public class ListaProfesores implements ComponenteLista {
                 listaProfesores[i] = null;
             else
                 continue;
+        selectionSort(listaProfesores);
     }
 
     /**
@@ -93,7 +97,7 @@ public class ListaProfesores implements ComponenteLista {
      * @return una representación en cadena del componente.
      */
     @Override public String toString() {
-        //Aquí va el código.
+        return Arrays.toString(listaProfesores);
     }
 
     /**
