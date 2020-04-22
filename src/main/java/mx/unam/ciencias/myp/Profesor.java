@@ -85,8 +85,19 @@ public class Profesor extends Usuario implements ComponenteLista {
      * Asigna una calificación a un alumno.
      * @param alumno el alumno al que se le asignará una calificación.
      */
-    public void asignarCalificacion(Alumno alumno) {
-        //Aquí va el código.
+    public void asignarCalificacion(AlumnoAbstracto alumno, int calificacion) {
+        Iterador iterador = listaAlumnos.creaIterador();
+        while (iterador.hasNext()) {
+            AlumnoAbstracto alumno = (AlumnoAbstracto)iterador.next();
+            if (alumno.equals(this.alumno)) {
+                alumno.getMateria(curso).setCalificacion(calificacion);
+                return;
+            } else
+                continue;
+        }
+        System.out.println("El alumno " + alumno.toString() + "no se " +
+                           "encuentra en la lista de alumnos.");
+        return;
     }
 
     /**
