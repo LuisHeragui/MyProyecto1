@@ -33,8 +33,11 @@ public class IteradorListaAlumnos implements Iterador {
      * @return el elemento siguiente.
      */
     @Override public Alumno next() {
-        Alumno alumno = listaAlumnos.get(posicion);
-        posicion++;
-        return alumno;
+        if (hasNext()) {
+            Alumno alumno = listaAlumnos.get(posicion);
+            posicion++;
+            return alumno;
+        }
+        return null;
     }
 }
