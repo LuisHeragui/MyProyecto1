@@ -3,7 +3,7 @@ package mx.unam.ciencias.myp;
 /**
  * Interfaz para crear un iterador para iterar las listas.
  */
-public interface Iterador<T> {
+public interface Iterador {
 
     /**
      * Nos dice si quedan elementos por recorrer en la lista.
@@ -15,5 +15,5 @@ public interface Iterador<T> {
      * Nos da elemento siguiente.
      * @return el elemento siguiente.
      */
-    public T next();
+    public Object next();
 }
