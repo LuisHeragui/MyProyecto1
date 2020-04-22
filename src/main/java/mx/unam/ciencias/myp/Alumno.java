@@ -82,6 +82,14 @@ public class Alumno extends AlumnoAbstracto {
     }
 
     /**
+     * Inscribe una opción técnica.
+     * @param opcionTecnica la opción técnica a inscribir.
+     */
+    public void inscribirOT(String opcionTecnica) {
+        //Aquí va el código.
+    }
+
+    /**
      * Regresa una representación en cadena del componente.
      * @return una representación en cadena del componente.
      */
