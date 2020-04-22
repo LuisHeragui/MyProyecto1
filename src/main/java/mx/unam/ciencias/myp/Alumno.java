@@ -30,6 +30,7 @@ public class Alumno extends AlumnoAbstracto {
         this.id = id;
         this.materias = materias;
         this.profesores = profesores;
+        this.setMenu(new MenuAlumno());
     }
 
     /**

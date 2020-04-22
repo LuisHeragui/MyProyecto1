@@ -19,6 +19,7 @@ public class AlumnoDecorador extends AlumnoAbstracto {
     public AlumnoDecorador(Alumno alumno, OpcionTecnica opcionTecnica) {
         this.alumno = alumno;
         this.opcionTecnica = opcionTecnica;
+        this.setMenu(new MenuAlumno());
     }
 
     /**

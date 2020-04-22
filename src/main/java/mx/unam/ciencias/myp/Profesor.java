@@ -29,6 +29,7 @@ public class Profesor extends Usuario implements ComponenteLista {
         this.id = id;
         this.curso = curso;
         this.grupo = grupo;
+        this.setMenu(new MenuProfesor());
     }
 
     /**
