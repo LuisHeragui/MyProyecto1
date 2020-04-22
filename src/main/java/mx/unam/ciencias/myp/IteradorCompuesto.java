@@ -11,10 +11,17 @@ public class IteradorCompuesto implements Iterador {
     private Stack pila = new Stack();
 
     /**
+     * Constructor que define el estado inicial del iterable para ser iterado.
+     */
+    public IteradorCompuesto(Iterador iterador) {
+        pila.push(iterador);
+    }
+
+    /**
      * Nos dice si quedan elementos por recorrer en la lista.
      * @return true si hay un elemento siguiente, false en otro caso.
      */
-    public boolean hasNext() {
+    @Override public boolean hasNext() {
         if (stack.empty())
             return false;
         Iterador iterador = (Iterador)pila.peek();
@@ -29,7 +36,7 @@ public class IteradorCompuesto implements Iterador {
      * Nos da elemento siguiente.
      * @return el elemento siguiente.
      */
-    public T next() {
+    @Override public T next() {
         if (hasNext()) {
             Iterador iterador = (Iterador)pila.peek();
             ComponenteLista componente = (ComponenteLista)iterador.next();

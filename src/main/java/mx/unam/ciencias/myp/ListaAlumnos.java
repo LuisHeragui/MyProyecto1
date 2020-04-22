@@ -5,7 +5,7 @@ import java.util.Hashtable;
 public class ListaAlumnos implements ComponenteLista {
 
     /* La lista de alumnos. */
-    private Hashtable<int, Alumno> listaAlumnos;
+    private Hashtable<Integer, Alumno> listaAlumnos;
 
     /**
      * Constructor que define el estado incial de la lista de alumnos.

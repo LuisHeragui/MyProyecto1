@@ -20,7 +20,7 @@ public class ListaProfesores implements ComponenteLista {
      * Agrega un componente al componente actual.
      * @param componente el componente a agregar.
      */
-    public void agrega(ComponenteLista componente) {
+    @Override public void agrega(ComponenteLista componente) {
         //Aquí va el código.
     }
 
@@ -28,7 +28,7 @@ public class ListaProfesores implements ComponenteLista {
      * Elimina un componente del componente actual.
      * @param componente el componente a eliminar.
      */
-    public void elimina(ComponenteLista componente) {
+    @Override public void elimina(ComponenteLista componente) {
         //Aquí va el código.
     }
 
@@ -36,7 +36,7 @@ public class ListaProfesores implements ComponenteLista {
      * Regresa una representación en cadena del componente.
      * @return una representación en cadena del componente.
      */
-    public String toString() {
+    @Override public String toString() {
         //Aquí va el código.
     }
 
@@ -44,7 +44,7 @@ public class ListaProfesores implements ComponenteLista {
      * Regresa un iterador para poder iterar al componente.
      * @return un iterador para iterar al componente.
      */
-    public Iterador creaIterador() {
+    @Override public Iterador creaIterador() {
         //Aquí va el código.
     }
 }

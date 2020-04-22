@@ -9,7 +9,7 @@ public class IteradorNulo implements Iterador {
      * Nos dice si quedan elementos por recorrer en la lista.
      * @return true si hay un elemento siguiente, false en otro caso.
      */
-    public boolean hasNext() {
+    @Override public boolean hasNext() {
         return false;
     }
 
@@ -17,7 +17,7 @@ public class IteradorNulo implements Iterador {
      * Nos da elemento siguiente.
      * @return el elemento siguiente.
      */
-    public T next() {
+    @Override public T next() {
         return null;
     }
 }
