@@ -1,7 +1,7 @@
 package mx.unam.ciencias.myp;
 
 /**
- * Clase que define el comportamiento del iterador nulo.
+ * Clase que asigna el comportamiento del iterador nulo.
  */
 public class IteradorNulo implements Iterador {
 
