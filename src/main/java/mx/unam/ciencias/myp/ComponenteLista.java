@@ -26,7 +26,7 @@ public interface ComponenteLista {
 
     /**
      * Regresa un iterador para poder iterar al componente.
-     * @return un iterador para iterar al componente..
+     * @return un iterador para iterar al componente.
      */
     public Iterador creaIterador();
 }
