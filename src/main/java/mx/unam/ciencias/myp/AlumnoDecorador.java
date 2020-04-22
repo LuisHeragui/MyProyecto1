@@ -4,32 +4,21 @@ package mx.unam.ciencias.myp;
  * Clase para representar un alumno.
  * Extiende a AlumnoAbstracto.
  */
-public class Alumno extends AlumnoAbstracto {
+public class AlumnoDecorador extends AlumnoAbstracto {
 
-    /* El nombre del alumno. */
-    private String nombre;
-    /* El id del alumno. */
-    private int id;
-    /* La lista de materias del alumno. */
-    private ArrayList<Materia> materias;
-    /* La lista de profesores del alumno. */
-    private ArrayList<Profesor> profesores;
-    /* El promedio del alumno. */
-    private double promedio;
+    /* El alumno a decorar. */
+    private Alumno alumno;
+    /* La opción técnica del alumno. */
+    private OpcionTecnica opcionTecnica;
 
     /**
-     * Constructor que define el estado inicial del alumno.
-     * @param nombre el nombre del alumno.
-     * @param id el id del alumno.
-     * @param materias las materias del alumno.
-     * @param profesores los profesores del alumno.
+     * Constructor que define el estado inicial del alumno decorador.
+     * @param alumno el alumno a ser decorado.
+     * @param opcionTecnica la opción técnica del alumno.
      */
-    public Alumno(String nombre, int id, ArrayList<Materia> materias,
-                  ArrayList<Profesor> profesores) {
-        this.nombre = nombre;
-        this.id = id;
-        this.materias = materias;
-        this.profesores = profesores;
+    public AlumnoDecorador(Alumno alumno, OpcionTecnica opcionTecnica) {
+        this.alumno = alumno;
+        this.opcionTecnica = opcionTecnica;
     }
 
     /**
@@ -79,6 +68,14 @@ public class Alumno extends AlumnoAbstracto {
      */
     @Override public int consultarCalificacion(String materia) {
         //Aquí va el código.
+    }
+
+    /**
+     * Regresa el nombre de la opción técnica.
+     * @return el nombre de la opción técnica.
+     */
+    public String getOT() {
+        return opcionTecnica.getNombre();
     }
 
     /**

@@ -44,12 +44,6 @@ public abstract class AlumnoAbstracto extends Usuario implements ComponenteLista
     public abstract int consultarCalificacion(String materia);
 
     /**
-     * Regresa el promedio del alumno.
-     * @return el promedio del alumno.
-     */
-    public abstract double consultarPromedio();
-
-    /**
      * Agrega un componente al componente actual.
      * @param componente el componente a agregar.
      */
