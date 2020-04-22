@@ -1,4 +1,4 @@
-package mx.unam.ciencias.aa;
+package mx.unam.ciencias.myp;
 
 /**
  * Clase para representar un administrador.
