@@ -12,12 +12,46 @@ public class ListaProfesores implements ComponenteLista {
     private int numeroDeProfesores = 0;
     /* La lista de alumnos. */
     private Profesor[] listaProfesores;
+    /* Booleano para saber si la lista esta llena. */
+    private boolean estaLlena;
 
     /**
      * Constructor que define el estado incial de la lista de alumnos.
      */
     public ListaProfesores() {
         listaProfesores = new Profesor[MAX_ITEMS];
+        estaLlena = false;
+    }
+
+    /**
+     * Regresa true si la lista esta llena, o false en otro caso.
+     * @return true si la lista esta llena, o false en otro caso.
+     */
+    public boolean estaLlena() {
+        return estaLlena;
+    }
+
+    /**
+     * Ordena el arreglo recibido usando SelectionSort.
+     * @param arreglo el arreglo a ordenar.
+     */
+    public Profesor[] selectionSort(Profesor[] arreglo) {
+        for (int i = 0; i < arreglo.length; i++) {
+            int m = i;
+            for (int j = i + 1; j < arreglo.length; j++)
+                if (arreglo[m].getID() > arreglo[j].getID())
+                    m = j;
+            intercambia(arreglo, i, m);
+        }
+    }
+
+    /* Método auxiliar para intercambiar dos elementos dentro de un arreglo. */
+    private void intercambia(Profesor[] arreglo, int a, int b) {
+        if (a == b)
+            return;
+        Profesor auxiliar = arreglo[a];
+        arreglo[a] = arreglo[b];
+        arreglo[b] = auxiliar;
     }
 
     /**
@@ -29,8 +63,15 @@ public class ListaProfesores implements ComponenteLista {
             for (int i = 0; i < listaProfesores.length, i++) {
                 if (listaProfesores[i] != null)
                     continue;
-                listaProfesores[i] = componente;
+                else {
+                    listaProfesores[i] = (Profesor)componente;
+                    if (i == listaProfesores.length - 1)
+                        estaLlena = true;
+                    return;
+                }
             }
+            estaLlena = true;
+            System.out.println("La lista de profesores está llena.");
         }
         return;
     }
@@ -40,7 +81,11 @@ public class ListaProfesores implements ComponenteLista {
      * @param componente el componente a eliminar.
      */
     @Override public void elimina(ComponenteLista componente) {
-        //Aquí va el código.
+        for (int i = 0; i < listaProfesores.length; i++)
+            if (listaProfesores[i].equals(componente))
+                listaProfesores[i] = null;
+            else
+                continue;
     }
 
     /**
