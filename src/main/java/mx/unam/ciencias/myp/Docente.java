@@ -4,18 +4,25 @@ package mx.unam.ciencias.myp;
  * Clase abstracta que define a un docente.
  * Extiende a Usuario e implementa ComponenteLista.
  */
-public abstract class Docente extends Usuario implements ComponenteLista {
+public class Docente extends Usuario implements ComponenteLista {
 
     /* El nombre del docente. */
-    protected String nombre;
+    private String nombre;
     /* El id del docente. */
-    protected int id;
+    private int id;
     /* La lista de alumnos del docente. */
-    protected ComponenteLista listaAlumnos;
+    private ComponenteLista listaAlumnos;
     /* El curso que da el docente. */
-    protected String curso;
+    private String curso;
     /* El grupo al que da clase el docente. */
-    protected String grupo;
+    private String grupo;
+
+    public Docente(String nombre, int id, String curso, String grupo) {
+        this.nombre = nombre;
+        this.id = id;
+        this.curso = curso;
+        this.grupo = grupo;
+    }
 
     /**
      * Regresa el nombre del docente.
