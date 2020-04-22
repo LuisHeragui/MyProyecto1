@@ -12,6 +12,7 @@ public class IteradorCompuesto implements Iterador {
 
     /**
      * Constructor que define el estado inicial del iterable para ser iterado.
+     * @param iterador El iterador para iterar al compuesto.
      */
     public IteradorCompuesto(Iterador iterador) {
         pila.push(iterador);

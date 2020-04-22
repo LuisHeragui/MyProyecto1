@@ -6,14 +6,15 @@ package mx.unam.ciencias.myp;
 public class IteradorListaProfesores implements Iterador {
 
     /* La colección sobre la que se va a iterar. */
-    private Docente[] listaProfesores;
+    private Profesor[] listaProfesores;
     /* La posicion del iterador. */
     int posicion = 0;
 
     /**
      * Constructor que define el estado inicial del iterable para ser iterado.
+     * @param listaProfesores la lista de profesores que será iterada.
      */
-    public IteradorListaProfesores(Docente[] listaProfesores) {
+    public IteradorListaProfesores(Profesor[] listaProfesores) {
         this.listaProfesores = listaProfesores;
     }
 
@@ -32,11 +33,11 @@ public class IteradorListaProfesores implements Iterador {
      * Nos da elemento siguiente.
      * @return el elemento siguiente.
      */
-    @Override public Docente next() {
+    @Override public Profesor next() {
         if (hasNext()) {
-            Docente docente = listaProfesores[posicion];
+            Profesor profesor = listaProfesores[posicion];
             posicion++;
-            return docente;
+            return profesor;
         }
         return null;
     }

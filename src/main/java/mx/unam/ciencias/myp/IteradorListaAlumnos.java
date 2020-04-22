@@ -12,6 +12,7 @@ public class IteradorListaAlumnos implements Iterador {
 
     /**
      * Constructor que define el estado inicial del iterable para ser iterado.
+     * @param listaAlumnos la lista de alumnos que será iterada.
      */
     public IteradorListaAlumnos(Hashtable<Integer, Alumno> listaAlumnos) {
         this.listaAlumnos = listaAlumnos;

@@ -7,13 +7,13 @@ public class ListaProfesores implements ComponenteLista {
     /* El número de profesores en la lista de profesores. */
     private int numeroDeProfesores = 0;
     /* La lista de alumnos. */
-    private Docente[] listaProfesores;
+    private Profesor[] listaProfesores;
 
     /**
      * Constructor que define el estado incial de la lista de alumnos.
      */
     public ListaProfesores() {
-        listaProfesores = new Docente[MAX_ITEMS];
+        listaProfesores = new Profesor[MAX_ITEMS];
     }
 
     /**

@@ -1,23 +1,30 @@
 package mx.unam.ciencias.myp;
 
 /**
- * Clase abstracta que define a un docente.
+ * Clase abstracta que define a un profesor.
  * Extiende a Usuario e implementa ComponenteLista.
  */
-public class Docente extends Usuario implements ComponenteLista {
+public class Profesor extends Usuario implements ComponenteLista {
 
-    /* El nombre del docente. */
+    /* El nombre del profesor. */
     private String nombre;
-    /* El id del docente. */
+    /* El id del profesor. */
     private int id;
-    /* La lista de alumnos del docente. */
+    /* La lista de alumnos del profesor. */
     private ComponenteLista listaAlumnos;
-    /* El curso que da el docente. */
+    /* El curso que da el profesor. */
     private String curso;
-    /* El grupo al que da clase el docente. */
+    /* El grupo al que da clase el profesor. */
     private String grupo;
 
-    public Docente(String nombre, int id, String curso, String grupo) {
+    /**
+     * Constructor que define el estado incial del profesor.
+     * @param nombre el nombre del profesor.
+     * @param id el id del profesor.
+     * @param curso el curso que da el profesor.
+     * @param grupo el grupo al que da clase el profesor.
+     */
+    public Profesor(String nombre, int id, String curso, String grupo) {
         this.nombre = nombre;
         this.id = id;
         this.curso = curso;
@@ -25,32 +32,32 @@ public class Docente extends Usuario implements ComponenteLista {
     }
 
     /**
-     * Regresa el nombre del docente.
-     * @return el nombre del docente.
+     * Regresa el nombre del profesor.
+     * @return el nombre del profesor.
      */
     public String getNombre() {
         return nombre;
     }
 
     /**
-     * Regresa la lista de alumnos del docente.
-     * @return la lista de alumnos del docente.
+     * Regresa la lista de alumnos del profesor.
+     * @return la lista de alumnos del profesor.
      */
     public ComponenteLista consultarListaAlumnos() {
         //Aquí va el código.
     }
 
     /**
-     * Regresa el grupo al que da clase el docente.
-     * @return el grupo al que da clase el docente.
+     * Regresa el grupo al que da clase el profesor.
+     * @return el grupo al que da clase el profesor.
      */
     public String consultarGrupo() {
         return grupo;
     }
 
     /**
-     * Regresa el curso que da el docente.
-     * @return el curso que da el docente.
+     * Regresa el curso que da el profesor.
+     * @return el curso que da el profesor.
      */
     public String consultarCurso() {
         return curso;
