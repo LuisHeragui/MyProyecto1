@@ -2,6 +2,10 @@ package mx.unam.ciencias.myp;
 
 import java.util.Hashtable;
 
+/**
+ * Clase para representar una lista de alumnos.
+ * Extiende a ComponenteLista.
+ */
 public class ListaAlumnos implements ComponenteLista {
 
     /* La lista de alumnos. */
