@@ -19,7 +19,9 @@ public class ListaAlumnos implements ComponenteLista {
      * @param componente el componente a agregar.
      */
     public void agrega(ComponenteLista componente) {
-        //Aquí va el código.
+        if (componente instanceof AlumnoAbstracto)
+            listaAlumnos.put(componente.getID(), componente);
+        return;
     }
 
     /**
@@ -27,7 +29,7 @@ public class ListaAlumnos implements ComponenteLista {
      * @param componente el componente a eliminar.
      */
     public void elimina(ComponenteLista componente) {
-        //Aquí va el código.
+        listaAlumnos.remove(componente.getID());
     }
 
     /**
@@ -35,7 +37,7 @@ public class ListaAlumnos implements ComponenteLista {
      * @return una representación en cadena del componente.
      */
     public String toString() {
-        //Aquí va el código.
+        return listaAlumnos.toString();
     }
 
     /**
@@ -43,6 +45,6 @@ public class ListaAlumnos implements ComponenteLista {
      * @return un iterador para iterar al componente.
      */
     public Iterador creaIterador() {
-        //Aquí va el código.
+        return new IteradorCompuesto(new IteradorListaAlumnos(listaAlumnos));
     }
 }
