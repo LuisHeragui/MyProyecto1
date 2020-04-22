@@ -29,6 +29,7 @@ public class Profesor extends Usuario implements ComponenteLista {
         this.id = id;
         this.curso = curso;
         this.grupo = grupo;
+        listaAlumnos = new ListaAlumnos();
         this.setMenu(new MenuProfesor());
     }
 
@@ -41,11 +42,27 @@ public class Profesor extends Usuario implements ComponenteLista {
     }
 
     /**
+     * Regresa el id del profesor.
+     * @return el id del profesor.
+     */
+    public String getID() {
+        return id;
+    }
+
+    /**
      * Regresa la lista de alumnos del profesor.
      * @return la lista de alumnos del profesor.
      */
     public ComponenteLista consultarListaAlumnos() {
-        //Aquí va el código.
+        return listaAlumnos;
+    }
+
+    /**
+     * Regresa una representación en cadena de la lista de alumnos del profesor.
+     * @return una representación en cadena de la lista de alumnos del profesor.
+     */
+    public String consultarListaAlumnos() {
+        return listaAlumnos.toString();
     }
 
     /**
