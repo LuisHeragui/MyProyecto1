@@ -1,5 +1,9 @@
 package mx.unam.ciencias.myp;
 
+/**
+ * Clase para representar una lista de profesores.
+ * Extiende a ComponenteLista.
+ */
 public class ListaProfesores implements ComponenteLista {
 
     /* El máximo número de profesores que puede tener la lista. */
@@ -21,7 +25,14 @@ public class ListaProfesores implements ComponenteLista {
      * @param componente el componente a agregar.
      */
     @Override public void agrega(ComponenteLista componente) {
-        //Aquí va el código.
+        if (componente instanceof Profesor) {
+            for (int i = 0; i < listaProfesores.length, i++) {
+                if (listaProfesores[i] != null)
+                    continue;
+                listaProfesores[i] = componente;
+            }
+        }
+        return;
     }
 
     /**
