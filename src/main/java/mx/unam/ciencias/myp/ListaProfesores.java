@@ -105,6 +105,6 @@ public class ListaProfesores implements ComponenteLista {
      * @return un iterador para iterar al componente.
      */
     @Override public Iterador creaIterador() {
-        //Aquí va el código.
+        return new IteradorCompuesto(new IteradorListaProfesores(listaProfesores));
     }
 }
