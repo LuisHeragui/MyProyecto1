@@ -11,7 +11,6 @@ public class Administrador extends Usuario {
 
     /**
      * Constructor que define el estado incial del administrador.
-     * @param profesores la lista de profesores.
      */
     public Administrador() {
         this.profesores = new ListaProfesores();
@@ -124,7 +123,7 @@ public class Administrador extends Usuario {
 
     /**
      * Regresa la lista de alumnos de la opción técnica especificada.
-     * @param opcionTecnica la opción técnica de la que queremos obtener la
+     * @param opcion la opción técnica de la que queremos obtener la
      * lista.
      * @return la lista de alumnos de la opción técnica.
      */
@@ -174,7 +173,6 @@ public class Administrador extends Usuario {
 
     /**
      * Regresa el certificado de graduación del alumno especificado.
-     * @param nombre el nombre del alumno.
      * @param id el id del alumno.
      * @return el certificado de graduación de un alumno.
      */
@@ -199,6 +197,8 @@ public class Administrador extends Usuario {
      * Inscribe a un alumno en el sistema. Le asigna un id, una lista de
      * materias y una lista de profesores.
      * @param nombre el nombre del alumno.
+     * @param id el id del alumno.
+     * @param materias la lista de materias del alumno.
      */
     public void inscribirAlumno(String nombre, int id, ListaMaterias materias) {
         ListaProfesores profesAlumno = new ListaProfesores();
@@ -224,7 +224,6 @@ public class Administrador extends Usuario {
 
     /**
      * Da de baja a un alumno del sistema. Lo elimina de todas las listas.
-     * @param nombre el nombre del alumno.
      * @param id el id del alumno.
      */
     public void bajaAlumno(int id) {
@@ -246,6 +245,8 @@ public class Administrador extends Usuario {
      * Contrata a un profesor. Le asigna un id, una materia, un grupo, y se
      * agrega al sistema.
      * @param nombre el nombre del profesor.
+     * @param id el id del profesor.
+     * @param curso el curso que dará el profesor.
      */
     public void contratarProfesor(String nombre, int id, Object curso) {
         if (profesores.estaLlena()) {
@@ -266,7 +267,6 @@ public class Administrador extends Usuario {
 
     /**
      * Despide a un profesor. Lo elimina de todas las listas.
-     * @param nombre el nombre del profesor.
      * @param id el id del profesor.
      */
     public void despedirProfesor(int id) {

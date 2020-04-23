@@ -83,7 +83,8 @@ public class Profesor extends Usuario implements Universitario {
 
     /**
      * Asigna una calificación a un alumno.
-     * @param alumno el alumno al que se le asignará una calificación.
+     * @param id el id del alumno al que se le asignará una calificación.
+     * @param calificacion la calificación que se le asignará.
      */
     public void asignarCalificacion(int id, int calificacion) {
         Iterador<Object> iterador = listaAlumnos.creaIterador();
@@ -109,10 +110,10 @@ public class Profesor extends Usuario implements Universitario {
     }
 
     /**
-     * Regresa true si el profesor es igual al profesor especificado, o false en
+     * Regresa true si el profesor es igual al objeto recibido, o false en
      * otro caso.
-     * @param profesor el profesor que vamos a comparar.
-     * @return true si el profesor es igual al profesor especificado, o false en
+     * @param objeto  vamos a comparar.
+     * @return true si el profesor es igual al objeto recibido, o false en
      * otro caso.
      */
     @Override public boolean equals(Object objeto) {

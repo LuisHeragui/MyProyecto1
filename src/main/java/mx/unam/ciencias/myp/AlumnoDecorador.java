@@ -1,7 +1,5 @@
 package mx.unam.ciencias.myp;
 
-import java.util.ArrayList;
-
 /**
  * Clase para representar un alumno.
  * Extiende a AlumnoAbstracto.
