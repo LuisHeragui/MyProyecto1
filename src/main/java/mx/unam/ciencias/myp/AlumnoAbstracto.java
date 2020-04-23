@@ -2,33 +2,45 @@ package mx.unam.ciencias.myp;
 
 /**
  * Clase abstracta para representar un alumno.
- * Extiende a Usuario e Implementa ComponenteLista.
+ * Extiende a Usuario e Implementa Universitario<T>.
  */
-public abstract class AlumnoAbstracto extends Usuario implements ComponenteLista {
+public abstract class AlumnoAbstracto extends Usuario
+implements Universitario<AlumnoAbstracto> {
 
     /**
      * Regresa el nombre del alumno.
      * @return el nombre del alumno.
      */
-    public abstract String getNombre();
+    @Override public String getNombre() {
+        return null;
+    }
 
     /**
      * Regresa el id del alumno.
      * @return el id del alumno.
      */
-    public abstract int getID();
+    @Override public abstract int getID() {
+        return null;
+    }
 
     /**
      * Regresa la lista de materias del alumno.
      * @return la lista de materias del alumno.
      */
-    public abstract ArrayList<Materia> getMaterias();
+    public abstract ListaMaterias getMaterias();
+
+    /**
+     * Regresa una materia del alumno.
+     * @param materia la materia a regresar.
+     * @return una materia del alumno.
+     */
+    public abstract Materia getMateria(String materia);
 
     /**
      * Regresa la lista de profesores del alumno.
      * @return la lista de profesores del alumno.
      */
-    public abstract ArrayList<String> getProfesores();
+    public abstract ListaProfesores getProfesores();
 
     /**
      * Regresa el promedio del alumno.
@@ -44,34 +56,21 @@ public abstract class AlumnoAbstracto extends Usuario implements ComponenteLista
     public abstract int consultarCalificacion(String materia);
 
     /**
-     * Agrega un componente al componente actual.
-     * @param componente el componente a agregar.
-     */
-    @Override public void agrega(ComponenteLista componente) {
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     * Elimina un componente del componente actual.
-     * @param componente el componente a eliminar.
-     */
-    @Override public void elimina(ComponenteLista componente) {
-        throw new UnsupportedOperationException();
-    }
-
-    /**
      * Regresa una representación en cadena del componente.
      * @return una representación en cadena del componente.
      */
     @Override public String toString() {
-        return;
+        return null;
     }
 
     /**
-     * Regresa un iterador para poder iterar al componente.
-     * @return un iterador para iterar al componente.
+     * Regresa true si el objeto es igual al objeto recibido, o false en otro
+     * caso.
+     * @param alumno el alumno que vamos a comparar.
+     * @return true si el objeto es igual al objeto recibido, o false en otro
+     * caso.
      */
-    @Override public Iterador creaIterador() {
-        return new IteradorNulo();
+    @Override public boolean equals(AlumnoAbstracto alumno) {
+        return null;
     }
 }

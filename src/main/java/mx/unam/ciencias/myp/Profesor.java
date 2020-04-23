@@ -111,6 +111,7 @@ public class Profesor extends Usuario implements Universitario<Profesor> {
     /**
      * Regresa true si el profesor es igual al profesor especificado, o false en
      * otro caso.
+     * @param profesor el profesor que vamos a comparar.
      * @return true si el profesor es igual al profesor especificado, o false en
      * otro caso.
      */
