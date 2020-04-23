@@ -38,13 +38,16 @@ public class ListaProfesores implements Lista {
      * @param arreglo el arreglo a ordenar.
      */
     public void selectionSort(Profesor[] arreglo) {
-        if (arreglo.length == 1)
-            return;
         for (int i = 0; i < arreglo.length; i++) {
             int m = i;
-            for (int j = i + 1; j < arreglo.length; j++)
+            if (arreglo[m] == null)
+                continue;
+            for (int j = i + 1; j < arreglo.length; j++) {
+                if (arreglo[j] == null)
+                    continue;
                 if (arreglo[m].getID() > arreglo[j].getID())
                     m = j;
+            }
             intercambia(arreglo, i, m);
         }
     }
