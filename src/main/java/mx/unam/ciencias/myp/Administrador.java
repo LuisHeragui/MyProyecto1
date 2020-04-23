@@ -1,7 +1,5 @@
 package mx.unam.ciencias.myp;
 
-import java.util.Map;
-
 /**
  * Clase para representar un administrador.
  * Extiende a Usuario.
@@ -69,7 +67,6 @@ public class Administrador extends Usuario {
         while (iteradorP.hasNext()) {
             Profesor profesor = (Profesor)iteradorP.next();
             ListaAlumnos alumnosProf = profesor.getListaAlumnos();
-            System.out.println(alumnosProf.toString());
             Iterador<Object> iteradorA = alumnosProf.creaIterador();
             while (iteradorA.hasNext()) {
                 AlumnoAbstracto alumno = (AlumnoAbstracto)iteradorA.next();
