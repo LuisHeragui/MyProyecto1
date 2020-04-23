@@ -14,8 +14,6 @@ public class Alumno extends AlumnoAbstracto {
     private Lista<Materia> materias;
     /* La lista de profesores del alumno. */
     private Lista<Profesor> profesores;
-    /* El promedio del alumno. */
-    private double promedio;
 
     /**
      * Constructor que define el estado inicial del alumno.
@@ -90,8 +88,10 @@ public class Alumno extends AlumnoAbstracto {
             Materia m = iterador.next();
             if (materia.equals(m.getNombre()))
                 return m.getCalificacion();
-
+            continue;
         }
+        System.out.println("No se encontró la materia en las materias.");
+        return -1;
     }
 
     /**
@@ -107,6 +107,6 @@ public class Alumno extends AlumnoAbstracto {
      * @return una representación en cadena del componente.
      */
     @Override public String toString() {
-        //Aquí va el código.
+        return this.getID().toString() + ": " + this.getNombre();
     }
 }
