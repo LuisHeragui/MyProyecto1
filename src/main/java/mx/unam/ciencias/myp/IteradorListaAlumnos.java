@@ -2,6 +2,8 @@ package mx.unam.ciencias.myp;
 
 import java.util.Set;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Clase que asigna el comportamiento del iterador de la lista de alumnos.

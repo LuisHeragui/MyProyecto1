@@ -70,7 +70,7 @@ public class ListaMaterias implements Lista<Materia> {
      * Regresa un iterador para poder iterar la lista.
      * @return un iterador para iterar la lista.
      */
-    @Override public Iterador<Materia> creaIterador() {
+    @Override public Iterador creaIterador() {
         return new IteradorListaMaterias(materias);
     }
 }
