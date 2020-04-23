@@ -4,12 +4,12 @@ import java.util.Hashtable;
 
 /**
  * Clase para representar una lista de alumnos.
- * Extiende a ComponenteLista.
+ * Extiende a Lista<T>.
  */
-public class ListaAlumnos implements ComponenteLista {
+public class ListaAlumnos implements Lista<AlumnoAbstracto> {
 
     /* La lista de alumnos. */
-    private Hashtable<Integer, Alumno> listaAlumnos;
+    private Hashtable<Integer, AlumnoAbstracto> listaAlumnos;
 
     /**
      * Constructor que define el estado incial de la lista de alumnos.
@@ -19,36 +19,38 @@ public class ListaAlumnos implements ComponenteLista {
     }
 
     /**
-     * Agrega un componente al componente actual.
-     * @param componente el componente a agregar.
+     * Agrega un alumno a la lista.
+     * @param alumno el alumno a agregar.
      */
-    public void agrega(ComponenteLista componente) {
-        if (componente instanceof AlumnoAbstracto)
-            listaAlumnos.put(componente.getID(), componente);
-        return;
+    @Overide public void agrega(AlumnoAbstracto alumno) {
+        listaAlumnos.put(alumno.getID(), alumno);
     }
 
     /**
-     * Elimina un componente del componente actual.
-     * @param componente el componente a eliminar.
+     * Elimina un alumno del la lista.
+     * @param alumno el alumno a eliminar.
      */
-    public void elimina(ComponenteLista componente) {
-        listaAlumnos.remove(componente.getID());
+    @Overide public void elimina(AlumnoAbstracto alumno) {
+        listaAlumnos.remove(alumno.getID());
     }
 
     /**
-     * Regresa una representación en cadena del componente.
-     * @return una representación en cadena del componente.
+     * Regresa una representación de la lista.
+     * @return una representación de la lista.
      */
-    public String toString() {
-        return listaAlumnos.toString();
+    @Override public String toString() {
+        String s = "";
+        Iterador<Materia> iterador = this.creaIterador();
+        while (iterador.hasNext()) {
+            AlumnoAbstracto alumno = iterador.next();
+            s += alumno.toString() + "\n";
     }
 
     /**
-     * Regresa un iterador para poder iterar al componente.
-     * @return un iterador para iterar al componente.
+     * Regresa un iterador para poder iterar la lista.
+     * @return un iterador para iterar la lista.
      */
-    public Iterador creaIterador() {
-        return new IteradorCompuesto(new IteradorListaAlumnos(listaAlumnos));
+    @Overide public Iterador creaIterador() {
+        return new IteradorListaAlumnos(listaAlumnos);
     }
 }
