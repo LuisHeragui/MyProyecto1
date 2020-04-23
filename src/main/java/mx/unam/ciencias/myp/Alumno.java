@@ -67,7 +67,7 @@ public class Alumno extends AlumnoAbstracto {
      * Regresa el promedio del alumno.
      * @return el promedio del alumno.
      */
-    @OVerride public double getPromedio() {
+    @Override public double getPromedio() {
         int suma = 0;
         Iterador<Materia> iterador = materias.creaIterador();
         while (iterador.hasNext()) {
