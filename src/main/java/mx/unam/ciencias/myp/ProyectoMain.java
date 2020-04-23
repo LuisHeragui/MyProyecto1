@@ -6,8 +6,7 @@ public class ProyectoMain{
 	
 	public static void main(String[] args) {
 		
-		Administrador administrador = new Administrador();
-		administrador.contratarProfesor();
+		Usuario administrador = new Administrador();
 
 		int idProfesor = 0;
 		int idAlumno = 0;
@@ -61,118 +60,67 @@ public class ProyectoMain{
 		administrador.inscribirAlumno("Jose", idAlumno++, materias);
 		administrador.inscribirAlumno("Pancho", idAlumno++, materias);
 		administrador.inscribirAlumno("Ines", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
+		administrador.inscribirAlumno("Jhony", idAlumno++, materias);
+		administrador.inscribirAlumno("Paula", idAlumno++, materias);
+
+		materias.limpia();
+		materias.agrega(biologiaA);
+		materias.agrega(quimicaA);
 
 		//Segeundo Grupo
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
+		administrador.inscribirAlumno("Agustin", idAlumno++, materias);
+		administrador.inscribirAlumno("Ricardo", idAlumno++, materias);
+		administrador.inscribirAlumno("Montserrat", idAlumno++, materias);
+		administrador.inscribirAlumno("Emilia", idAlumno++, materias);
+		administrador.inscribirAlumno("Luisa", idAlumno++, materias);
+		administrador.inscribirAlumno("Rafael", idAlumno++, materias);
+		administrador.inscribirAlumno("Alfonso", idAlumno++, materias);
+		administrador.inscribirAlumno("Angela", idAlumno++, materias);
+
+		materias.limpia();
+		materias.agrega(historiaA);
+		materias.agrega(cienciasSocialesA);
+
 
 		//Tercer Grupo
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
+		administrador.inscribirAlumno("Trunks", idAlumno++, materias);
+		administrador.inscribirAlumno("Picoro", idAlumno++, materias);
+		administrador.inscribirAlumno("Goku", idAlumno++, materias);
+		administrador.inscribirAlumno("Gohan", idAlumno++, materias);
+		administrador.inscribirAlumno("Krillin", idAlumno++, materias);
+		administrador.inscribirAlumno("Bulma", idAlumno++, materias);
+		administrador.inscribirAlumno("Milk", idAlumno++, materias);
+		administrador.inscribirAlumno("Vegeta", idAlumno++, materias);
+
+		materias.limpia();
+		materias.agrega(filosofiaA);
+		materias.agrega(artesPlásticasA);
+
 
 		//Cuarto Grupo
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
+		administrador.inscribirAlumno("Naruto", idAlumno++, materias);
+		administrador.inscribirAlumno("Sasuke", idAlumno++, materias);
+		administrador.inscribirAlumno("Sakura", idAlumno++, materias);
+		administrador.inscribirAlumno("Hinata", idAlumno++, materias);
+		administrador.inscribirAlumno("Kakashi", idAlumno++, materias);
+		administrador.inscribirAlumno("Shoji", idAlumno++, materias);
+		administrador.inscribirAlumno("Ino", idAlumno++, materias);
+		administrador.inscribirAlumno("Shikamaru", idAlumno++, materias);
+
+		materias.limpia();
+		materias.agrega();
+		materias.agrega();
+
 
 		//Quinto Grupo
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-
-		//Sexto Grupo
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-
-		//Septimo Grupo
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-
-		//Octavo Grupo
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-
-		//Noveno Grupo
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-
-		//Decimo Grupo
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-
-		//Onceavo Grupo
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-
-		//DOceavo Grupo
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Alberto", idAlumno++, materias);
-		administrador.inscribirAlumno("Blaa", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
-		administrador.inscribirAlumno("Nuria", idAlumno++, materias);
+		administrador.inscribirAlumno("Luffy", idAlumno++, materias);
+		administrador.inscribirAlumno("Zoro", idAlumno++, materias);
+		administrador.inscribirAlumno("Nami", idAlumno++, materias);
+		administrador.inscribirAlumno("Usopp", idAlumno++, materias);
+		administrador.inscribirAlumno("Sanji", idAlumno++, materias);
+		administrador.inscribirAlumno("Chopper", idAlumno++, materias);
+		administrador.inscribirAlumno("Franky", idAlumno++, materias);
+		administrador.inscribirAlumno("Robin", idAlumno++, materias);
 
 
 		Scanner sc = new Scanner(System.in);
