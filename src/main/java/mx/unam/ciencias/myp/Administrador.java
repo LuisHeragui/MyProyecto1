@@ -136,8 +136,10 @@ public class Administrador extends Usuario {
             opcionTecnica = "Fotógrafo Laboratorista y Prensa";
         } else if (opcion == 3) {
             opcionTecnica = "Nutriólogo";
-        } else {
+        } else if (opcion == 4) {
             opcionTecnica = "Laboratorista Químico";
+        } else {
+            return "No existe la opción técnica especificada.";
         }
         ListaAlumnos alumnos = new ListaAlumnos();
         Iterador<Object> iteradorP = profesores.creaIterador();
@@ -150,9 +152,10 @@ public class Administrador extends Usuario {
                     AlumnoAbstracto alumno = (AlumnoAbstracto)iteradorA.next();
                     alumnos.agrega(alumno);
                 }
-                if (alumnos.longitud() == 0)
+                if (alumnos.longitud() == 0) {
                     System.out.println("Por el momento no hay alumnos cursando "
-                                       + "esta opción técnica.");
+                                        + "esta opción técnica.");
+                }
                 return alumnos.toString();
             } else
                 continue;
