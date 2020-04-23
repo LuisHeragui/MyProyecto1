@@ -65,7 +65,7 @@ public class ListaProfesores implements Lista {
             if (profesores[i] != null)
                 continue;
             else {
-                Profesor profesor = (AlumnoAbstracto)objeto;
+                Profesor profesor = (Profesor)objeto;
                 profesores[i] = profesor;
                 selectionSort(profesores);
                 if (i == profesores.length - 1)
@@ -83,7 +83,7 @@ public class ListaProfesores implements Lista {
      * @param profesor el profesor a eliminar.
      */
     @Override public void elimina(Object objeto) {
-        Profesor profesor = (AlumnoAbstracto)objeto;
+        Profesor profesor = (Profesor)objeto;
         for (int i = 0; i < profesores.length; i++)
             if (profesores[i].equals(profesor))
                 profesores[i] = null;
@@ -98,13 +98,13 @@ public class ListaProfesores implements Lista {
      */
     @Override public String toString() {
         String s = "";
-        Iterador<Profesor> iterador = this.creaIterador();
+        Iterador<Object> iterador = this.creaIterador();
         if (iterador.hasNext()) {
-            Profesor profesor = iterador.next();
+            Profesor profesor = (Profesor)iterador.next();
             s += profesor.toString();
         }
         while (iterador.hasNext()) {
-            Profesor profesor = iterador.next();
+            Profesor profesor = (Profesor)iterador.next();
             s += ", " + profesor.toString();
         }
         return s;

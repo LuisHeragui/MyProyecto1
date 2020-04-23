@@ -12,6 +12,8 @@ public class Materia {
 	private String grupo;
 	/* La calificación asignada a la materia. */
 	private int calificacion;
+	/* El profesor asociado a la materia */
+    private Profesor profesor;
 
 	/**
      * Constructor que define el estado inicial de una materia.
@@ -21,6 +23,7 @@ public class Materia {
 		this.nombre = nombre;
 		this.grupo = grupo;
 		calificacion = 10;
+		profesor = null;
 	}
 
 	/**
@@ -55,19 +58,19 @@ public class Materia {
         this.calificacion = calificacion;
     }
 
-    ///**
-    // * Regresa el profesor de la materia.
-    // * @return el profesor de la materia.
-    // */
-    //public Profesor getProfesor() {
-    //    return profesor;
-    //}
+    /**
+     * Regresa el profesor de la materia.
+     * @return el profesor de la materia.
+     */
+    public Profesor getProfesor() {
+        return profesor;
+    }
 
-    ///**
-    // * Define al profesor de la materia.
-    // * @param profesor el profesor de la materia.
-    // */
-    //public void setProfesor(Profesor profesor) {
-    //    this.profesor = profesor;
-    //}
+    /**
+     * Define al profesor de la materia.
+     * @param profesor el profesor de la materia.
+     */
+    public void setProfesor(Profesor profesor) {
+        this.profesor = profesor;
+    }
 }

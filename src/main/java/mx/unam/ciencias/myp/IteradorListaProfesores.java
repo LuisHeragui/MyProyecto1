@@ -3,7 +3,7 @@ package mx.unam.ciencias.myp;
 /**
  * Clase que asigna el comportamiento del iterador de la lista de profesores.
  */
-public class IteradorListaProfesores implements Iterador<Profesor> {
+public class IteradorListaProfesores implements Iterador<Object> {
 
     /* El arreglo sobre la que se va a iterar. */
     private Profesor[] listaProfesores;

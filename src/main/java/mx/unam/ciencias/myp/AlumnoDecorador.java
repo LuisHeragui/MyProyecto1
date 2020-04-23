@@ -52,7 +52,7 @@ public class AlumnoDecorador extends AlumnoAbstracto {
      * Regresa la lista de profesores del alumno.
      * @return la lista de profesores del alumno.
      */
-    @Override public ArrayList<String> getProfesores() {
+    @Override public ListaProfesores getProfesores() {
         return profesores;
     }
 

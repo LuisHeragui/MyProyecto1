@@ -11,6 +11,8 @@ public class OpcionTecnica {
 	private String grupo;
     /* La calificación asignada a la opción técnica. */
     private int calificacion;
+    /* El profesor asociado a la materia */
+    private Profesor profesor;
 
     /**
      * Constructor que define el estado inicial de una opción técnica.
@@ -20,6 +22,7 @@ public class OpcionTecnica {
         this.nombre = nombre;
         this.grupo = grupo;
         calificacion = 10;
+        profesor = null;
     }
 
     /**
