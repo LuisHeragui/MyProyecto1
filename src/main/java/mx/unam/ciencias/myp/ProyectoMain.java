@@ -716,8 +716,6 @@ public class ProyectoMain{
 																	if (sc.hasNextInt()) {
 																		int cal = sc.nextInt();
 																		profesor.asignarCalificacion(opcion, cal);
-																		imprime("\nCalificación asignada " +
-																    			"exitosamente.");
 																		break;
 																	} else {
 																		limpiaPantalla();

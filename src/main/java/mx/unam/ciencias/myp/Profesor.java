@@ -92,6 +92,7 @@ public class Profesor extends Usuario implements Universitario {
             alumno = (AlumnoAbstracto)iterador.next();
             if (alumno.getID() == id) {
                 alumno.getMateria(curso).setCalificacion(calificacion);
+                System.out.println("Calificación asignada exitosamente.");
                 return;
             } else
                 continue;
