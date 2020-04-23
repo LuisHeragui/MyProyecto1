@@ -61,7 +61,7 @@ public class ListaProfesores implements Lista<Profesor> {
      * @param profesor el profesor a agregar.
      */
     @Override public void agrega(Profesor profesor) {
-        for (int i = 0; i < profesores.length, i++) {
+        for (int i = 0; i < profesores.length; i++) {
             if (profesores[i] != null)
                 continue;
             else {

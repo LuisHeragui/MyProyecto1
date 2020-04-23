@@ -21,6 +21,46 @@ public class Administrador extends Usuario {
     }
 
     /**
+     * Regresa al alumno cuyo id es igual al recibido como parámetro.
+     * @param id el id del alumno.
+     * @return el alumno cuyo id es igual al recibido como parámetro.
+     */
+    public AlumnoAbstracto getAlumno(int id) {
+        Iterador<Profesor> iteradorP = profesores.creaIterador();
+        while (iteradorP.hasNext()) {
+            Profesor profesor = iteradorP.next();
+            ListaAlumnos alumnosProf = profesor.getListaAlumnos();
+            Iterador<Map.Entry> iteradorM = alumnosProf.creaIterador();
+            while (iteradorM.hasNext()) {
+                Map.Entry me = (Map.Entry)iteradorM.next();
+                AlumnoAbstracto alumno = me.getValue();
+                if (alumno.getID() == id)
+                    return alumno;
+                continue;
+            }
+        }
+        System.out.println("No se puedo encontrar al alumno.");
+        return null;
+    }
+
+    /**
+     * Regresa al profesor cuyo id es igual al recibido como parámetro.
+     * @param id el id del profesor.
+     * @return el profesor cuyo id es igual al recibido como parámetro.
+     */
+    public Profesor getProfesor(int id) {
+        Iterador<Profesor> iteradorP = profesores.creaIterador();
+        while (iteradorP.hasNext()) {
+            Profesor profesor = iteradorP.next();
+            if (profesor.getID() == id)
+                return profesor;
+            continue;
+        }
+        System.out.println("No se puedo encontrar al profesor.");
+        return null;
+    }
+
+    /**
      * Regresa la lista de alumnos totales.
      * @return la lista de alumnos totales.
      */
@@ -40,7 +80,7 @@ public class Administrador extends Usuario {
                     alumnos.agrega(alumno);
             }
         }
-        alumnos.toString();
+        return alumnos.toString();
     }
 
     /**
@@ -48,22 +88,22 @@ public class Administrador extends Usuario {
      * @param area el área de la que queremos obtener la lista.
      * @return la lista de alumnos del área.
      */
-    public String getAlumnosArea(String area) {
+    public String getAlumnosArea(int area) {
         ListaAlumnos alumnos = new ListaAlumnos();
         String materia1 = "";
         String materia2 = "";
-        if (area.equals("fm")) {
-            materia1 = "física";
-            materia2 = "matemáticas";
-        } else if (area.equals("cbs")) {
-            materia1 = "biología";
-            materia2 = "química";
-        } else if (area.equals("cs")) {
-            materia1 = "historia";
-            materia2 = "ciencias sociales";
-        } else if (area.equals("ha")) {
-            materia1 = "filosofía";
-            materia2 = "artes plásticas";
+        if (area == 1) {
+            materia1 = "Física";
+            materia2 = "Matemáticas";
+        } else if (area == 2) {
+            materia1 = "Biología";
+            materia2 = "Química";
+        } else if (area == 3) {
+            materia1 = "Historia";
+            materia2 = "Ciencias Sociales";
+        } else if (area == 4) {
+            materia1 = "Filosofía";
+            materia2 = "Artes Plásticas";
         } else {
             System.out.println("No existe el área " + area);
             return "";
@@ -95,7 +135,17 @@ public class Administrador extends Usuario {
      * lista.
      * @return la lista de alumnos de la opción técnica.
      */
-    public String getAlumnosOT(String opcionTecnica) {
+    public String getAlumnosOT(int opcion) {
+        String opcionTecnica = "";
+        if (opcion == 1) {
+            opcionTecnica = "Agente de Viajes y Hotelería";
+        } else if (opcion == 2) {
+            opcionTecnica = "Fotógrafo Laboratorista y Prensa";
+        } else if (opcion == 3) {
+            opcionTecnica = "Nutriólogo";
+        } else {
+            opcionTecnica = "Laboratorista Químico";
+        }
         ListaAlumnos alumnos = new ListaAlumnos();
         Iterador<Profesor> iteradorP = profesores.creaIterador();
         while (iteradorP.hasNext()) {
@@ -113,7 +163,7 @@ public class Administrador extends Usuario {
                 continue;
         }
         System.out.println("No hay profesor dando la opción técnica.");
-        return ""
+        return "";
     }
 
     /**
@@ -131,11 +181,11 @@ public class Administrador extends Usuario {
      * @return el certificado de graduación de un alumno.
      */
     public String graduarAlumno(int id) {
-        AlumnoAbstracto alumno = buscaAlumno(id);
+        AlumnoAbstracto alumno = getAlumno(id);
         if (alumno.equals(null))
             return "\n";
         String s = "CERTIFICADO DE GRADUACIÓN\n" +
-                   "-------------------------\n"
+                   "-------------------------\n" +
                    "Nombre: " + alumno.getNombre() + "\n" +
                    alumno.getMaterias().toString() + "\n" +
                    alumno.getProfesores().toString() + "\n" +
@@ -143,24 +193,6 @@ public class Administrador extends Usuario {
         if (alumno.tieneOT())
             s += "Opción Técnica: " + alumno.getOT();
         return s;
-    }
-
-    private AlumnoAbstracto buscaAlumno(int id) {
-        Iterador<Profesor> iteradorP = profesores.creaIterador();
-        while (iteradorP.hasNext()) {
-            Profesor profesor = iteradorP.next();
-            ListaAlumnos alumnosProf = profesor.getListaAlumnos();
-            Iterador<Map.Entry> iteradorM = alumnosProf.creaIterador();
-            while (iteradorM.hasNext()) {
-                Map.Entry me = (Map.Entry)iteradorM.next();
-                AlumnoAbstracto alumno = me.getValue();
-                if (id == alumno.getID())
-                    return alumno;
-                continue;
-            }
-        }
-        System.out.println("El alumno no se encuentra en el sistema.");
-        return null;
     }
 
     /**

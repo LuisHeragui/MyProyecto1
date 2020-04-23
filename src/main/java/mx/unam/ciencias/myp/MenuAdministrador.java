@@ -18,7 +18,7 @@ public class MenuAdministrador implements Menu {
 				   "7.- Dar de baja un alumno.\n" +
 				   "8.- Contratar un profesor.\n" +
 				   "9.- Despedir un profesor.\n" +
-				   "0.- Salir\n"
+				   "0.- Salir\n";
 		System.out.print(s);
 	}
 }

@@ -81,7 +81,8 @@ public class AlumnoDecorador extends AlumnoAbstracto {
                 return m.getCalificacion();
             iterador.next();
         }
-        return System.out.println("No se encontró la matria")
+        System.out.println("No se encontró la matria");
+        return -1;
     }
 
     /**
@@ -99,7 +100,7 @@ public class AlumnoDecorador extends AlumnoAbstracto {
      * @return el alumno actualizado.
      */
     @Override public AlumnoDecorador inscribirOT(OpcionTecnica opcionTecnica) {
-        System.out.println("El alumno ya está inscrito en una opción técnica")
+        System.out.println("Ya está inscrito en una opción técnica");
         return this;
     }
 

@@ -85,11 +85,11 @@ public class Profesor extends Usuario implements Universitario<Profesor> {
      * Asigna una calificación a un alumno.
      * @param alumno el alumno al que se le asignará una calificación.
      */
-    public void asignarCalificacion(AlumnoAbstracto alumno, int calificacion) {
+    public void asignarCalificacion(int id, int calificacion) {
         Iterador iterador = listaAlumnos.creaIterador();
         while (iterador.hasNext()) {
             AlumnoAbstracto alumno = (AlumnoAbstracto)iterador.next();
-            if (alumno.equals(this.alumno)) {
+            if (alumno.getID() == id) {
                 alumno.getMateria(curso).setCalificacion(calificacion);
                 return;
             } else
