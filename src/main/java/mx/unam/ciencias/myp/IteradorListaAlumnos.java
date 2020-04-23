@@ -5,7 +5,7 @@ package mx.unam.ciencias.myp;
  */
 public class IteradorListaAlumnos implements Iterador {
 
-    /* La colección sobre la que se va a iterar. */
+    /* La tabla sobre la que se va a iterar. */
     private Hashtable<Integer, Alumno> listaAlumnos;
     /* La posicion del iterador. */
     int posicion = 0;

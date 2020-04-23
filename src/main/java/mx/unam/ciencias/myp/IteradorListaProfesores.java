@@ -5,7 +5,7 @@ package mx.unam.ciencias.myp;
  */
 public class IteradorListaProfesores implements Iterador {
 
-    /* La colección sobre la que se va a iterar. */
+    /* El arreglo sobre la que se va a iterar. */
     private Profesor[] listaProfesores;
     /* La posicion del iterador. */
     int posicion = 0;
