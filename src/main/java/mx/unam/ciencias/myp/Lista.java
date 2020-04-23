@@ -3,19 +3,19 @@ package mx.unam.ciencias.myp;
 /**
  * Interfaz para definir el comportamiento de una lista.
  */
-public interface Lista<T> {
+public interface Lista {
 
 	/**
      * Agrega un elemento a la lista.
      * @param elemento el elemento a agregar.
      */
-	public void agrega(T elemento);
+	public void agrega(Object elemento);
 
 	/**
      * Elimina un elemento de la lista.
      * @param elemento el elemento a eliminar.
      */
-	public void elimina(T elemento);
+	public void elimina(Object elemento);
 
 	/**
      * Regresa una representación en cadena de la lista.
@@ -27,5 +27,5 @@ public interface Lista<T> {
      * Regresa un iterador para poder iterar la lista.
      * @return un iterador para iterar la lista.
      */
-	public Iterador creaIterador();
+	public Iterador<Object> creaIterador();
 }

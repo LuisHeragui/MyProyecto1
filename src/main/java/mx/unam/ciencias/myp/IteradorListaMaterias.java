@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Clase que asigna el comportamiento del iterador de la lista de materias.
  */
-public class IteradorListaMaterias implements Iterador<Materia> {
+public class IteradorListaMaterias implements Iterador<Object> {
 
     /* La lista sobre la que se va a iterar. */
     private ArrayList<Materia> materias;

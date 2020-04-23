@@ -129,7 +129,7 @@ public class AlumnoDecorador extends AlumnoAbstracto {
      * @return true si el objeto es igual al objeto recibido, o false en otro
      * caso.
      */
-    @Override public boolean equals(Objeto objeto) {
+    @Override public boolean equals(Object objeto) {
         if (objeto instanceof AlumnoAbstracto) {
             AlumnoAbstracto alumno = (Alumno)objeto;
             if (this.getNombre().equals(alumno.getNombre()) &&

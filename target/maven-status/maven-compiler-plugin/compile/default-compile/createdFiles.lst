@@ -4,5 +4,7 @@ mx/unam/ciencias/myp/IteradorListaAlumnos.class
 mx/unam/ciencias/myp/Materia.class
 mx/unam/ciencias/myp/MenuAlumno.class
 mx/unam/ciencias/myp/Menu.class
+mx/unam/ciencias/myp/ListaMaterias.class
 mx/unam/ciencias/myp/Usuario.class
 mx/unam/ciencias/myp/AlumnoAbstracto.class
+mx/unam/ciencias/myp/Lista.class

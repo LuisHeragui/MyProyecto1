@@ -11,7 +11,7 @@ public class Profesor extends Usuario implements Universitario {
     /* El id del profesor. */
     private int id;
     /* La lista de alumnos del profesor. */
-    private Lista listaAlumnos;
+    private ListaAlumnos listaAlumnos = new Lista<Alumno>();
     /* El curso que da el profesor. */
     private String curso;
     /* El grupo al que da clase el profesor. */
@@ -29,7 +29,7 @@ public class Profesor extends Usuario implements Universitario {
         this.id = id;
         this.curso = curso;
         this.grupo = grupo;
-        listaAlumnos = new ListaAlumnos();
+        listaAlumnos = new Lista<Alumno>();
         this.setMenu(new MenuProfesor());
     }
 

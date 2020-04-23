@@ -11,9 +11,9 @@ public class Alumno extends AlumnoAbstracto {
     /* El id del alumno. */
     private int id;
     /* La lista de materias del alumno. */
-    private Lista<Materia> materias;
+    private Lista materias;
     /* La lista de profesores del alumno. */
-    private Lista<Profesor> profesores;
+    private Lista profesores;
 
     /**
      * Constructor que define el estado inicial del alumno.
@@ -127,7 +127,7 @@ public class Alumno extends AlumnoAbstracto {
      * @return true si el objeto es igual al objeto recibido, o false en otro
      * caso.
      */
-    @Override public boolean equals(Objeto objeto) {
+    @Override public boolean equals(Object objeto) {
         if (objeto instanceof Alumno) {
             Alumno alumno = (Alumno)objeto;
             if (this.getNombre().equals(alumno.getNombre()) &&

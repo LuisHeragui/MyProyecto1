@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 /**
  * Clase para representar una lista de materias.
- * Implementa Lista<T>.
+ * Implementa Lista.
  */
-public class ListaMaterias implements Lista<Materia> {
+public class ListaMaterias implements Lista {
 
     /* La lista de materias. */
     private ArrayList<Materia> materias;
@@ -37,7 +37,8 @@ public class ListaMaterias implements Lista<Materia> {
      * Agrega una materia a la lista.
      * @param materia al materia a agregar.
      */
-    @Override public void agrega(Materia materia) {
+    @Override public void agrega(Object objeto) {
+        Materia materia = (Materia)objeto;
         materias.add(materia);
     }
 
@@ -45,7 +46,8 @@ public class ListaMaterias implements Lista<Materia> {
      * Elimina una materia de la lista.
      * @param materia la materia a eliminar.
      */
-    @Override public void elimina(Materia materia) {
+    @Override public void elimina(Object objeto) {
+        Materia materia = (Materia)objeto;
         materias.remove(materia);
     }
 
@@ -55,22 +57,23 @@ public class ListaMaterias implements Lista<Materia> {
      */
     @Override public String toString() {
         String s = "";
-        Iterador<Materia> iterador = this.creaIterador();
+        Iterador<Object> iterador = this.creaIterador();
         if (iterador.hasNext()) {
-            Materia materia = iterador.next();
+            Materia materia = (Materia)iterador.next();
             s += materia.getNombre() + ": " + materia.getCalificacion();
         }
         while (iterador.hasNext()) {
-            Materia materia = iterador.next();
+            Materia materia = (Materia)iterador.next();
             s += ", " + materia.getNombre() + ": " + materia.getCalificacion();
         }
+        return s;
     }
 
     /**
      * Regresa un iterador para poder iterar la lista.
      * @return un iterador para iterar la lista.
      */
-    @Override public Iterador creaIterador() {
+    @Override public Iterador<Object> creaIterador() {
         return new IteradorListaMaterias(materias);
     }
 }

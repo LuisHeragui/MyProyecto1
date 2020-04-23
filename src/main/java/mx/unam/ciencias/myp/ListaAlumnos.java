@@ -7,7 +7,7 @@ import java.util.Map;
  * Clase para representar una lista de alumnos.
  * Extiende a Lista<T>.
  */
-public class ListaAlumnos implements Lista<AlumnoAbstracto> {
+public class ListaAlumnos implements Lista {
 
     /* La lista de alumnos. */
     private TreeMap<Integer, AlumnoAbstracto> listaAlumnos;
@@ -34,7 +34,8 @@ public class ListaAlumnos implements Lista<AlumnoAbstracto> {
      * Agrega un alumno a la lista.
      * @param alumno el alumno a agregar.
      */
-    @Override public void agrega(AlumnoAbstracto alumno) {
+    @Override public void agrega(Object objeto) {
+        AlumnoAbstracto alumno = (AlumnoAbstracto)objeto;
         listaAlumnos.put(alumno.getID(), alumno);
     }
 
@@ -42,7 +43,8 @@ public class ListaAlumnos implements Lista<AlumnoAbstracto> {
      * Elimina un alumno del la lista.
      * @param alumno el alumno a eliminar.
      */
-    @Override public void elimina(AlumnoAbstracto alumno) {
+    @Override public void elimina(Object objeto) {
+        AlumnoAbstracto alumno = (AlumnoAbstracto)objeto;
         listaAlumnos.remove(alumno.getID());
     }
 
@@ -65,7 +67,7 @@ public class ListaAlumnos implements Lista<AlumnoAbstracto> {
      * Regresa un iterador para poder iterar la lista.
      * @return un iterador para iterar la lista.
      */
-    @Override public Iterador creaIterador() {
+    @Override public Iterador<Object> creaIterador() {
         return new IteradorListaAlumnos(listaAlumnos);
     }
 }

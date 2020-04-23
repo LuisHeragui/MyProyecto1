@@ -9,7 +9,7 @@ import java.util.Map;
 public class Administrador extends Usuario {
 
     /* La lista de profesores. */
-    private Lista<Profesor> profesores;
+    private Lista profesores;
 
     /**
      * Constructor que define el estado incial del administrador.

@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 /**
  * Clase para representar una lista de profesores.
- * Implementa Lista<T>.
+ * Implementa Lista.
  */
-public class ListaProfesores implements Lista<Profesor> {
+public class ListaProfesores implements Lista {
 
     /* El máximo número de profesores que puede tener la lista. */
     private static final int MAX_ITEMS = 20;
@@ -60,11 +60,12 @@ public class ListaProfesores implements Lista<Profesor> {
      * Agrega un profesor a la lista.
      * @param profesor el profesor a agregar.
      */
-    @Override public void agrega(Profesor profesor) {
+    @Override public void agrega(Object objeto) {
         for (int i = 0; i < profesores.length; i++) {
             if (profesores[i] != null)
                 continue;
             else {
+                Profesor profesor = (AlumnoAbstracto)objeto;
                 profesores[i] = profesor;
                 selectionSort(profesores);
                 if (i == profesores.length - 1)
@@ -81,7 +82,8 @@ public class ListaProfesores implements Lista<Profesor> {
      * Elimina un profesor de la lista.
      * @param profesor el profesor a eliminar.
      */
-    @Override public void elimina(Profesor profesor) {
+    @Override public void elimina(Object objeto) {
+        Profesor profesor = (AlumnoAbstracto)objeto;
         for (int i = 0; i < profesores.length; i++)
             if (profesores[i].equals(profesor))
                 profesores[i] = null;
@@ -105,13 +107,14 @@ public class ListaProfesores implements Lista<Profesor> {
             Profesor profesor = iterador.next();
             s += ", " + profesor.toString();
         }
+        return s;
     }
 
     /**
      * Regresa un iterador para poder iterar la lista.
      * @return un iterador para iterar la lista.
      */
-    @Override public Iterador creaIterador() {
+    @Override public Iterador<Object> creaIterador() {
         return new IteradorListaProfesores(profesores);
     }
 }
