@@ -49,6 +49,14 @@ public class AlumnoDecorador extends AlumnoAbstracto {
     }
 
     /**
+     * Regresa los nombres de las materias del alumno.
+     * @return los nombres de las materias del alumno.
+     */
+    @Override public String getNombreMaterias() {
+        return alumno.getNombreMaterias();
+    }
+
+    /**
      * Regresa una materia del alumno.
      * @param materia la materia a regresar.
      * @return una materia del alumno.

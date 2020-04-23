@@ -59,7 +59,7 @@ public class Alumno extends AlumnoAbstracto {
      * Regresa los nombres de las materias del alumno.
      * @return los nombres de las materias del alumno.
      */
-    public String getNombreMaterias() {
+    @Override public String getNombreMaterias() {
         String s = "";
         Iterador<Object> iterador = materias.creaIterador();
         while (iterador.hasNext()) {
