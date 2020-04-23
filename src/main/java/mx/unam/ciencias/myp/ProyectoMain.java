@@ -593,7 +593,7 @@ public class ProyectoMain{
 													if (sc.hasNextInt()) {
 														opcion = sc.nextInt();
 														administrador.despedirProfesor(opcion);
-														imprime("\nProfesor " + opcion.toString() +
+														imprime("\nProfesor " + opcion +
 																" despedido.");
 														break;
 													} else {
@@ -603,24 +603,24 @@ public class ProyectoMain{
 														sc = new Scanner(System.in);
 													}
 												}
-												imprime("\n\n¿Qué más desea hacer?\n" +
-														administrador.imprimirMenu());
+												imprime("\n\n¿Qué más desea hacer?\n");
+												administrador.imprimirMenu();
 												while (sc.hasNext()) {
 													if (sc.hasNextInt()) {
 														opcion = sc.nextInt();
 														break;
 													} else {
 														limpiaPantalla();
-														imprime("\nIngrese una opción válida.\n" +
-																administrador.imprimirMenu());
+														imprime("\nIngrese una opción válida.\n");
+														administrador.imprimirMenu();
 														sc = new Scanner(System.in);
 													}
 												}
 												break;
 
 											default:
-												imprime("\nIngrese una opción válida.\n" +
-														administrador.imprimirMenu());
+												imprime("\nIngrese una opción válida.\n");
+												administrador.imprimirMenu();
 												sc = new Scanner(System.in);
 												while (sc.hasNext()) {
 													if (sc.hasNextInt()) {
@@ -628,8 +628,8 @@ public class ProyectoMain{
 														break;
 													} else {
 														limpiaPantalla();
-														imprime("\nIngrese una opción válida.\n" +
-																administrador.imprimirMenu());
+														imprime("\nIngrese una opción válida.\n");
+														administrador.imprimirMenu();
 														sc = new Scanner(System.in);
 													}
 												}
@@ -643,8 +643,8 @@ public class ProyectoMain{
 									break;
 								} else {
 									limpiaPantalla();
-									imprime("\nIngrese una opción válida.\n" +
-											administrador.imprimirMenu());
+									imprime("\nIngrese una opción válida.\n");
+									administrador.imprimirMenu();
 									sc = new Scanner(System.in);
 								}
 							}
@@ -669,16 +669,16 @@ public class ProyectoMain{
 												switch (opcion) {
 													case 1:
 														imprime(profesor.getListaAlumnos().toString());
-														imprime("\n\n¿Qué más desea hacer?\n" +
-																profesor.imprimirMenu());
+														imprime("\n\n¿Qué más desea hacer?\n");
+														profesor.imprimirMenu();
 														while (sc.hasNext()) {
 															if (sc.hasNextInt()) {
 																opcion = sc.nextInt();
 																break;
 															} else {
 																limpiaPantalla();
-																imprime("\nIngrese una opción válida.\n" +
-																		profesor.imprimirMenu());
+																imprime("\nIngrese una opción válida.\n");
+																profesor.imprimirMenu();
 																sc = new Scanner(System.in);
 															}
 														}
@@ -686,16 +686,16 @@ public class ProyectoMain{
 
 													case 2:
 														imprime(profesor.consultarGrupo());
-														imprime("\n\n¿Qué más desea hacer?\n" +
-																profesor.imprimirMenu());
+														imprime("\n\n¿Qué más desea hacer?\n");
+														profesor.imprimirMenu();
 														while (sc.hasNext()) {
 															if (sc.hasNextInt()) {
 																opcion = sc.nextInt();
 																break;
 															} else {
 																limpiaPantalla();
-																imprime("\nIngrese una opción válida.\n" +
-																		profesor.imprimirMenu());
+																imprime("\nIngrese una opción válida.\n");
+																profesor.imprimirMenu();
 																sc = new Scanner(System.in);
 															}
 														}
@@ -703,16 +703,16 @@ public class ProyectoMain{
 
 													case 3:
 														imprime(profesor.consultarCurso());
-														imprime("\n\n¿Qué más desea hacer?\n" +
-																profesor.imprimirMenu());
+														imprime("\n\n¿Qué más desea hacer?\n");
+														profesor.imprimirMenu();
 														while (sc.hasNext()) {
 															if (sc.hasNextInt()) {
 																opcion = sc.nextInt();
 																break;
 															} else {
 																limpiaPantalla();
-																imprime("\nIngrese una opción válida.\n" +
-																		profesor.imprimirMenu());
+																imprime("\nIngrese una opción válida.\n");
+																profesor.imprimirMenu();
 																sc = new Scanner(System.in);
 															}
 														}
@@ -748,8 +748,8 @@ public class ProyectoMain{
 																sc = new Scanner(System.in);
 															}
 														}
-														imprime("\n\n¿Qué más desea hacer?\n" +
-																profesor.imprimirMenu());
+														imprime("\n\n¿Qué más desea hacer?\n");
+														profesor.imprimirMenu();
 														while (sc.hasNext()) {
 															if (sc.hasNextInt()) {
 																opcion = sc.nextInt();
@@ -764,8 +764,8 @@ public class ProyectoMain{
 														break;
 
 													default:
-														imprime("\nIngrese una opción válida.\n" +
-																administrador.imprimirMenu());
+														imprime("\nIngrese una opción válida.\n");
+														administrador.imprimirMenu();
 														sc = new Scanner(System.in);
 														while (sc.hasNext()) {
 															if (sc.hasNextInt()) {
@@ -773,8 +773,8 @@ public class ProyectoMain{
 																break;
 															} else {
 																limpiaPantalla();
-																imprime("\nIngrese una opción válida.\n" +
-																		administrador.imprimirMenu());
+																imprime("\nIngrese una opción válida.\n");
+																administrador.imprimirMenu();
 																sc = new Scanner(System.in);
 															}
 														}
@@ -788,8 +788,8 @@ public class ProyectoMain{
 											break;
 										} else {
 											limpiaPantalla();
-											imprime("\nIngrese una opción válida.\n" +
-													profesor.imprimirMenu());
+											imprime("\nIngrese una opción válida.\n");
+											profesor.imprimirMenu();
 											sc = new Scanner(System.in);
 										}
 									}
@@ -804,13 +804,13 @@ public class ProyectoMain{
 							break;
 
 						case 3:
-							impiaPantalla();
+							limpiaPantalla();
 							imprime("\n" + administrador.getAlumnosTotales() +
 									"\n\nIngrese su id.\n");
 							while (sc.hasNext()) {
 								if (sc.hasNextInt()) {
 									opcion = sc.nextInt();			//hacer método
-									Alumno alumno = administrador.getAlumno(opcion);
+									AlumnoAbstracto alumno = administrador.getAlumno(opcion);
 									imprime("\nBienvenido, alumno " +
 											alumno.getNombre() +
 									 		"\n¿Qué desea hacer?\n");
@@ -827,17 +827,17 @@ public class ProyectoMain{
 																"que desea consultar.\n");
 														String materia = sc.next();
 														int c = alumno.consultarCalificacion(materia);
-														imprime(c.toString());
-														imprime("\n\n¿Qué más desea hacer?\n" +
-																alumno.imprimirMenu());
+														imprime(c);
+														imprime("\n\n¿Qué más desea hacer?\n");
+														alumno.imprimirMenu();
 														while (sc.hasNext()) {
 															if (sc.hasNextInt()) {
 																opcion = sc.nextInt();
 																break;
 															} else {
 																limpiaPantalla();
-																imprime("\nIngrese una opción válida.\n" +
-																		alumno.imprimirMenu());
+																imprime("\nIngrese una opción válida.\n");
+																alumno.imprimirMenu();
 																sc = new Scanner(System.in);
 															}
 														}
