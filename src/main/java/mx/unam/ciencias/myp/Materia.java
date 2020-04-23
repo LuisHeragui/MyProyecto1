@@ -8,8 +8,6 @@ public class Materia {
 
 	/* El nombre de la materia. */
 	private String nombre;
-	/* El grupo, A o B. */
-	private String grupo;
 	/* La calificación asignada a la materia. */
 	private int calificacion;
 	/* El profesor asignado a la materia. */

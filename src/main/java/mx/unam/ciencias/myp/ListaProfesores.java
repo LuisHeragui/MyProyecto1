@@ -4,24 +4,24 @@ import java.util.Arrays;
 
 /**
  * Clase para representar una lista de profesores.
- * Extiende a ComponenteLista.
+ * Implementa Lista<T>.
  */
-public class ListaProfesores implements ComponenteLista {
+public class ListaProfesores implements Lista<Profesor> {
 
     /* El máximo número de profesores que puede tener la lista. */
     private static final int MAX_ITEMS = 20;
     /* El número de profesores en la lista de profesores. */
     private int numeroDeProfesores = 0;
-    /* La lista de alumnos. */
-    private Profesor[] listaProfesores;
+    /* La lista de profesores. */
+    private Profesor[] profesores;
     /* Booleano para saber si la lista esta llena. */
     private boolean estaLlena;
 
     /**
-     * Constructor que define el estado incial de la lista de alumnos.
+     * Constructor que define el estado incial de la lista de profesores.
      */
     public ListaProfesores() {
-        listaProfesores = new Profesor[MAX_ITEMS];
+        profesores = new Profesor[MAX_ITEMS];
         estaLlena = false;
     }
 
@@ -62,13 +62,13 @@ public class ListaProfesores implements ComponenteLista {
      */
     @Override public void agrega(ComponenteLista componente) {
         if (componente instanceof Profesor) {
-            for (int i = 0; i < listaProfesores.length, i++) {
-                if (listaProfesores[i] != null)
+            for (int i = 0; i < profesores.length, i++) {
+                if (profesores[i] != null)
                     continue;
                 else {
-                    listaProfesores[i] = (Profesor)componente;
-                    selectionSort(listaProfesores);
-                    if (i == listaProfesores.length - 1)
+                    profesores[i] = (Profesor)componente;
+                    selectionSort(profesores);
+                    if (i == profesores.length - 1)
                         estaLlena = true;
                     return;
                 }
@@ -84,12 +84,12 @@ public class ListaProfesores implements ComponenteLista {
      * @param componente el componente a eliminar.
      */
     @Override public void elimina(ComponenteLista componente) {
-        for (int i = 0; i < listaProfesores.length; i++)
-            if (listaProfesores[i].equals(componente))
-                listaProfesores[i] = null;
+        for (int i = 0; i < profesores.length; i++)
+            if (profesores[i].equals(componente))
+                profesores[i] = null;
             else
                 continue;
-        selectionSort(listaProfesores);
+        selectionSort(profesores);
     }
 
     /**
@@ -97,7 +97,7 @@ public class ListaProfesores implements ComponenteLista {
      * @return una representación en cadena del componente.
      */
     @Override public String toString() {
-        return Arrays.toString(listaProfesores);
+        return Arrays.toString(profesores);
     }
 
     /**
@@ -105,6 +105,6 @@ public class ListaProfesores implements ComponenteLista {
      * @return un iterador para iterar al componente.
      */
     @Override public Iterador creaIterador() {
-        return new IteradorCompuesto(new IteradorListaProfesores(listaProfesores));
+        return new IteradorCompuesto(new IteradorListaProfesores(profesores));
     }
 }

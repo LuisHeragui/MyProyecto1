@@ -2,16 +2,16 @@ package mx.unam.ciencias.myp;
 
 /**
  * Clase abstracta que define a un profesor.
- * Extiende a Usuario e implementa ComponenteLista.
+ * Extiende a Usuario e implementa Universitario<T>.
  */
-public class Profesor extends Usuario implements ComponenteLista {
+public class Profesor extends Usuario implements Universitario<Profesor> {
 
     /* El nombre del profesor. */
     private String nombre;
     /* El id del profesor. */
     private int id;
     /* La lista de alumnos del profesor. */
-    private ComponenteLista listaAlumnos;
+    private Lista listaAlumnos;
     /* El curso que da el profesor. */
     private String curso;
     /* El grupo al que da clase el profesor. */
@@ -37,7 +37,7 @@ public class Profesor extends Usuario implements ComponenteLista {
      * Regresa el nombre del profesor.
      * @return el nombre del profesor.
      */
-    public String getNombre() {
+    @Override public String getNombre() {
         return nombre;
     }
 
@@ -45,7 +45,7 @@ public class Profesor extends Usuario implements ComponenteLista {
      * Regresa el id del profesor.
      * @return el id del profesor.
      */
-    public String getID() {
+    @Override public String getID() {
         return id;
     }
 
@@ -53,7 +53,7 @@ public class Profesor extends Usuario implements ComponenteLista {
      * Regresa la lista de alumnos del profesor.
      * @return la lista de alumnos del profesor.
      */
-    public ComponenteLista consultarListaAlumnos() {
+    public ListaAlumnos getListaAlumnos() {
         return listaAlumnos;
     }
 
@@ -101,34 +101,23 @@ public class Profesor extends Usuario implements ComponenteLista {
     }
 
     /**
-     * Agrega un componente al componente actual.
-     * @param componente el componente a agregar.
-     */
-    @Override public void agrega(ComponenteLista componente) {
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     * Elimina un componente del componente actual.
-     * @param componente el componente a eliminar.
-     */
-    @Override public void elimina(ComponenteLista componente) {
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     * Regresa una representación en cadena del componente.
-     * @return una representación en cadena del componente.
+     * Regresa una representación en cadena del profesor.
+     * @return una representación en cadena del profesor.
      */
     @Override public String toString() {
-        //Aquí va el código.
+        return this.getID() + ": " + this.getNombre();
     }
 
     /**
-     * Regresa un iterador para poder iterar al componente.
-     * @return un iterador para iterar al componente.
+     * Regresa true si el profesor es igual al profesor especificado, o false en
+     * otro caso.
+     * @return true si el profesor es igual al profesor especificado, o false en
+     * otro caso.
      */
-    @Override public Iterador creaIterador() {
-        return new IteradorNulo();
+    @Override public boolean equals(Profesor profesor) {
+        if (this.getNombre().equals(profesor.getNombre()) &&
+            this.getID() == profesor.getID())
+            return true;
+        return false;
     }
 }
