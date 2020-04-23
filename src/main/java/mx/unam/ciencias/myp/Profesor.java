@@ -86,16 +86,14 @@ public class Profesor extends Usuario implements Universitario {
      * @param alumno el alumno al que se le asignará una calificación.
      */
     public void asignarCalificacion(int id, int calificacion) {
-        Iterador iterador = listaAlumnos.creaIterador();
-        AlumnoAbstracto alumno = null;
+        Iterador<Object> iterador = listaAlumnos.creaIterador();
         while (iterador.hasNext()) {
-            alumno = (AlumnoAbstracto)iterador.next();
+            AlumnoAbstracto alumno = (AlumnoAbstracto)iterador.next();
             if (alumno.getID() == id) {
                 alumno.getMateria(curso).setCalificacion(calificacion);
                 System.out.println("Calificación asignada exitosamente.");
                 return;
-            } else
-                continue;
+            }
         }
         System.out.println("El alumno seleccionado no se encuentra en la " +
                            "lista de alumnos.");

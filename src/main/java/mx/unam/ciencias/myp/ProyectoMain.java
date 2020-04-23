@@ -217,6 +217,7 @@ public class ProyectoMain{
 													if (sc.hasNextInt()) {
 														opcion = sc.nextInt();
 														imprime(administrador.getAlumnosOT(opcion));
+														break;
 													} else {
 														limpiaPantalla();
 														imprime("\nIngrese una opción válida.\n" +
@@ -366,6 +367,7 @@ public class ProyectoMain{
 																sc = new Scanner(System.in);
 																break;
 														}
+														break;
 													} else {
 														limpiaPantalla();
 														imprime("\nIngrese una opción válida.\n" +

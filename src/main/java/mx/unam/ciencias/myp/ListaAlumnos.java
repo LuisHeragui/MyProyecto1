@@ -19,6 +19,14 @@ public class ListaAlumnos implements Lista {
     }
 
     /**
+     * Regresa la longitud de la lista.
+     * @return la longitud de la lista.
+     */
+    public int longitud() {
+        return listaAlumnos.size();
+    }
+
+    /**
      * Regresa true si la lista contiene al alumno recibido, o false en otro
      * caso.
      * @param alumno el alumno que vamos a verificar.
@@ -27,10 +35,6 @@ public class ListaAlumnos implements Lista {
      */
     public boolean contiene(AlumnoAbstracto alumno) {
         return listaAlumnos.contains(alumno);
-    }
-
-    public Hashtable alumnos() {
-        return listaAlumnos;
     }
 
     /**

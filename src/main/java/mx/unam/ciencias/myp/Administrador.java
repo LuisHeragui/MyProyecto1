@@ -150,6 +150,9 @@ public class Administrador extends Usuario {
                     AlumnoAbstracto alumno = (AlumnoAbstracto)iteradorA.next();
                     alumnos.agrega(alumno);
                 }
+                if (alumnos.longitud() == 0)
+                    System.out.println("Por el momento no hay alumnos cursando "
+                                       + "esta opción técnica.");
                 return alumnos.toString();
             } else
                 continue;
