@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * Clase para representar una lista de alumnos.
- * Extiende a Lista<T>.
+ * Extiende a Lista.
  */
 public class ListaAlumnos implements Lista {
 
@@ -54,10 +54,10 @@ public class ListaAlumnos implements Lista {
      */
     @Override public String toString() {
         String s = "";
-        Iterador<Map.Entry> iterador = this.creaIterador();
+        Iterador<Object> iterador = this.creaIterador();
         while (iterador.hasNext()) {
             Map.Entry me = (Map.Entry)iterador.next();
-            AlumnoAbstracto alumno = me.getValue();
+            AlumnoAbstracto alumno = (AlumnoAbstracto)me.getValue();
             s += alumno.toString() + "\n";
         }
         return s;

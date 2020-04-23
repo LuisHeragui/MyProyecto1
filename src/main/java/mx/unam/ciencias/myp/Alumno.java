@@ -56,6 +56,23 @@ public class Alumno extends AlumnoAbstracto {
     }
 
     /**
+     * Regresa una materia del alumno.
+     * @param materia la materia a regresar.
+     * @return una materia del alumno.
+     */
+    @Override public Materia getMateria(String nombre) {
+        Iterador<Object> iterador = materias.creaIterador();
+        while (iterador.hasNext()) {
+            Materia materia = (Materia)iterador.next();
+            if (materia.getNombre().equals(nombre))
+                return materia;
+            continue;
+        }
+        System.out.println("No se encontró la materia " + nombre + ".");
+        return null;
+    }
+
+    /**
      * Regresa la lista de profesores del alumno.
      * @return la lista de profesores del alumno.
      */
@@ -69,9 +86,9 @@ public class Alumno extends AlumnoAbstracto {
      */
     @Override public double getPromedio() {
         int suma = 0;
-        Iterador<Materia> iterador = materias.creaIterador();
+        Iterador<Object> iterador = materias.creaIterador();
         while (iterador.hasNext()) {
-            Materia materia = iterador.next();
+            Materia materia = (Materia)iterador.next();
             suma += materia.getCalificacion();
         }
         return suma/materias.longitud();

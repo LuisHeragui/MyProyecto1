@@ -11,7 +11,7 @@ public class Profesor extends Usuario implements Universitario {
     /* El id del profesor. */
     private int id;
     /* La lista de alumnos del profesor. */
-    private ListaAlumnos listaAlumnos = new Lista<Alumno>();
+    private ListaAlumnos listaAlumnos;
     /* El curso que da el profesor. */
     private String curso;
     /* El grupo al que da clase el profesor. */
@@ -29,7 +29,7 @@ public class Profesor extends Usuario implements Universitario {
         this.id = id;
         this.curso = curso;
         this.grupo = grupo;
-        listaAlumnos = new Lista<Alumno>();
+        listaAlumnos = new ListaAlumnos();
         this.setMenu(new MenuProfesor());
     }
 
@@ -87,8 +87,9 @@ public class Profesor extends Usuario implements Universitario {
      */
     public void asignarCalificacion(int id, int calificacion) {
         Iterador iterador = listaAlumnos.creaIterador();
+        AlumnoAbstracto alumno = null;
         while (iterador.hasNext()) {
-            AlumnoAbstracto alumno = (AlumnoAbstracto)iterador.next();
+            alumno = (AlumnoAbstracto)iterador.next();
             if (alumno.getID() == id) {
                 alumno.getMateria(curso).setCalificacion(calificacion);
                 return;

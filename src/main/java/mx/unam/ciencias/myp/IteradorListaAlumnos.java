@@ -8,7 +8,7 @@ import java.util.TreeMap;
 /**
  * Clase que asigna el comportamiento del iterador de la lista de alumnos.
  */
-public class IteradorListaAlumnos implements Iterador<Map.Entry> {
+public class IteradorListaAlumnos implements Iterador<Object> {
 
     /* La tabla sobre la que se va a iterar. */
     private TreeMap<Integer, AlumnoAbstracto> listaAlumnos;
