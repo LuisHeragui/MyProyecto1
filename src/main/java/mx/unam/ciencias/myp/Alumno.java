@@ -56,6 +56,20 @@ public class Alumno extends AlumnoAbstracto {
     }
 
     /**
+     * Regresa los nombres de las materias del alumno.
+     * @return los nombres de las materias del alumno.
+     */
+    public String getNombreMaterias() {
+        String s = "";
+        Iterador<Object> iterador = materias.creaIterador();
+        while (iterador.hasNext()) {
+            Materia materia = (Materia)iterador.next();
+            s += materia.getNombre() + "\n";
+        }
+        return s;
+    }
+
+    /**
      * Regresa una materia del alumno.
      * @param materia la materia a regresar.
      * @return una materia del alumno.

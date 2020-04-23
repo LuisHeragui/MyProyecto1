@@ -186,6 +186,7 @@ public class ProyectoMain{
 													if (sc.hasNextInt()) {
 														opcion = sc.nextInt();
 														imprime(administrador.getAlumnosArea(opcion));
+														break;
 													} else {
 														limpiaPantalla();
 														imprime("\nIngrese una opción válida.\n" +
@@ -711,7 +712,7 @@ public class ProyectoMain{
 														while (sc.hasNext()) {
 															if (sc.hasNextInt()) {
 																opcion = sc.nextInt();
-																imprime("\nDigite la calificación.\n");
+																imprime("\nDigite la calificación entera.\n");
 																while (sc.hasNext()) {
 																	if (sc.hasNextInt()) {
 																		int cal = sc.nextInt();
@@ -720,7 +721,7 @@ public class ProyectoMain{
 																	} else {
 																		limpiaPantalla();
 																		imprime("\nIngrese una calificación válida.\n" +
-																				administrador.getAlumnosTotales());
+																				profesor.getListaAlumnos().toString());
 																		sc = new Scanner(System.in);
 																	}
 																}
@@ -728,7 +729,7 @@ public class ProyectoMain{
 															} else {
 																limpiaPantalla();
 																imprime("\nIngrese una opción válida.\n" +
-																		administrador.getAlumnosTotales());
+																		profesor.getListaAlumnos().toString());
 																sc = new Scanner(System.in);
 															}
 														}
@@ -795,7 +796,7 @@ public class ProyectoMain{
 								if (sc.hasNextInt()) {
 									opcion = sc.nextInt();			//hacer método
 									AlumnoAbstracto alumno = administrador.getAlumno(opcion);
-									imprime("\nBienvenido, alumno " +
+									imprime("\nBienvenido, " +
 											alumno.getNombre() +
 									 		"\n¿Qué desea hacer?\n");
 									alumno.imprimirMenu();
@@ -806,12 +807,12 @@ public class ProyectoMain{
 												switch (opcion) {
 													case 1:
 														limpiaPantalla();
-														imprime(alumno.getMaterias().toString());
+														imprime(alumno.getNombreMaterias());
 														imprime("\nEscriba correctamente el nombre de la materia " +
 																"que desea consultar.\n");
-														String materia = sc.next();
+														String materia = sc.nextLine();
 														int c = alumno.consultarCalificacion(materia);
-														imprime(c);
+														imprime("La calificación es " + c);
 														imprime("\n\n¿Qué más desea hacer?\n");
 														alumno.imprimirMenu();
 														while (sc.hasNext()) {
