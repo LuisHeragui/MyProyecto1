@@ -10,13 +10,9 @@ mx/unam/ciencias/myp/Lista.class
 mx/unam/ciencias/myp/Profesor.class
 mx/unam/ciencias/myp/Iterador.class
 mx/unam/ciencias/myp/Universitario.class
-mx/unam/ciencias/myp/Administrador.class
 mx/unam/ciencias/myp/MenuAlumno.class
 mx/unam/ciencias/myp/Menu.class
 mx/unam/ciencias/myp/AlumnoDecorador.class
 mx/unam/ciencias/myp/Usuario.class
 mx/unam/ciencias/myp/IteradorListaProfesores.class
-mx/unam/ciencias/myp/ProyectoMain.class
 mx/unam/ciencias/myp/Alumno.class
-mx/unam/ciencias/myp/IteradorListaMaterias.class
-mx/unam/ciencias/myp/MenuProfesor.class

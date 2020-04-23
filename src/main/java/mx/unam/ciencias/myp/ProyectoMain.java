@@ -138,7 +138,7 @@ public class ProyectoMain{
 					 "3. Nutriólogo\n" +
 					 "4. Laboratorista Químico\n";
 
-		impiaPantalla();
+		limpiaPantalla();
         imprime("\nEscuela Nacional Preparatoria N°10 " +
                            "\"Francisco Villa\" UNAM.\n\n" +
                            "¿Cómo desea ingresar al sistema?\n" +
