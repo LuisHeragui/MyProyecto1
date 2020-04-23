@@ -19,6 +19,17 @@ public class ListaAlumnos implements Lista<AlumnoAbstracto> {
     }
 
     /**
+     * Regresa true si la lista contiene al alumno recibido, o false en otro
+     * caso.
+     * @param alumno el alumno que vamos a verificar.
+     * @return true si la lista contiene al alumno recibido, o false en otro
+     * caso.
+     */
+    public boolean contiene(AlumnoAbstracto alumno) {
+        return listaAlumnos.contains(alumno);
+    }
+
+    /**
      * Agrega un alumno a la lista.
      * @param alumno el alumno a agregar.
      */

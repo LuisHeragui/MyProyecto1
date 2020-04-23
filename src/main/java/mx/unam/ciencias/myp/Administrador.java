@@ -2,12 +2,12 @@ package mx.unam.ciencias.myp;
 
 /**
  * Clase para representar un administrador.
- * Extiende a Usuario e implementa ComponenteLista.
+ * Extiende a Usuario.
  */
 public class Administrador extends Usuario {
 
     /* Las listas de alumnos y profesores que tiene el aministrador. */
-    private ComponenteLista listas;
+    private Lista<Profesor> profesores;
 
     /**
      * Constructor que define el estado incial del administrador.
