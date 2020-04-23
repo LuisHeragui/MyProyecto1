@@ -1,6 +1,7 @@
 package mx.unam.ciencias.myp;
 
-import java.util.Hashtable;
+import java.util.TreeMap;
+import java.util.Map;
 
 /**
  * Clase para representar una lista de alumnos.
@@ -9,13 +10,13 @@ import java.util.Hashtable;
 public class ListaAlumnos implements Lista<AlumnoAbstracto> {
 
     /* La lista de alumnos. */
-    private Hashtable<Integer, AlumnoAbstracto> listaAlumnos;
+    private TreeMap<Integer, AlumnoAbstracto> listaAlumnos;
 
     /**
      * Constructor que define el estado incial de la lista de alumnos.
      */
     public ListaAlumnos() {
-        listaAlumnos = new Hashtable<>();
+        listaAlumnos = new TreeMap<>();
     }
 
     /**
@@ -26,14 +27,14 @@ public class ListaAlumnos implements Lista<AlumnoAbstracto> {
      * caso.
      */
     public boolean contiene(AlumnoAbstracto alumno) {
-        return listaAlumnos.contains(alumno);
+        return listaAlumnos.containsValue(alumno);
     }
 
     /**
      * Agrega un alumno a la lista.
      * @param alumno el alumno a agregar.
      */
-    @Overide public void agrega(AlumnoAbstracto alumno) {
+    @Override public void agrega(AlumnoAbstracto alumno) {
         listaAlumnos.put(alumno.getID(), alumno);
     }
 
@@ -41,7 +42,7 @@ public class ListaAlumnos implements Lista<AlumnoAbstracto> {
      * Elimina un alumno del la lista.
      * @param alumno el alumno a eliminar.
      */
-    @Overide public void elimina(AlumnoAbstracto alumno) {
+    @Override public void elimina(AlumnoAbstracto alumno) {
         listaAlumnos.remove(alumno.getID());
     }
 
@@ -53,15 +54,18 @@ public class ListaAlumnos implements Lista<AlumnoAbstracto> {
         String s = "";
         Iterador<Materia> iterador = this.creaIterador();
         while (iterador.hasNext()) {
-            AlumnoAbstracto alumno = iterador.next();
+            Map.Entry me = (Map.Entry)iterador.next();
+            AlumnoAbstracto alumno = me.getValue();
             s += alumno.toString() + "\n";
+        }
+        return s;
     }
 
     /**
      * Regresa un iterador para poder iterar la lista.
      * @return un iterador para iterar la lista.
      */
-    @Overide public Iterador creaIterador() {
+    @Override public Iterador creaIterador() {
         return new IteradorListaAlumnos(listaAlumnos);
     }
 }

@@ -11,10 +11,10 @@ public class Administrador extends Usuario {
 
     /**
      * Constructor que define el estado incial del administrador.
-     * @param listas las listas de alumnos y profesores.
+     * @param profesores la lista de profesores.
      */
-    public Administrador(ComponenteLista listas) {
-        this.listas = listas;
+    public Administrador(ListaProfesores profesores) {
+        this.profesores = profesores;
         this.setMenu(new MenuAdministrador());
     }
 
@@ -22,8 +22,22 @@ public class Administrador extends Usuario {
      * Regresa la lista de alumnos totales.
      * @return la lista de alumnos totales.
      */
-    public ComponenteLista getAlumnosTotales() {
-        //Aquí va el código.
+    public String getAlumnosTotales() {
+        ListaAlumnos alumnos = new ListaAlumnos();
+        Iterador<Profesor> iteradorP = profesores.creaIterador();
+        while (iteradorP.hasNext()) {
+            Profesor profesor = iteradorP.next();
+            ListaAlumnos alumnosProf = profesor.getListaAlumnos();
+            Iterador<Alumno> iteradorA = alumnosProf.creaIterador();
+            while (iteradorA.hasNext()) {
+                Alumno alumno = iteradorA.next();
+                if (alumnos.contiene(alumno))
+                    continue;
+                else
+                    alumnos.agrega(alumno);
+            }
+        }
+        alumnos.toString();
     }
 
     /**
@@ -31,7 +45,7 @@ public class Administrador extends Usuario {
      * @param materia la materia de la que queremos obtener la lista.
      * @return la lista de alumnos de la materia.
      */
-    public ComponenteLista getAlumnosArea(String materia) {
+    public ListaProfesores getAlumnosArea(String materia) {
         //Aquí va el código.
     }
 
@@ -41,7 +55,7 @@ public class Administrador extends Usuario {
      * lista.
      * @return la lista de alumnos de la opción técnica.
      */
-    public ComponenteLista getAlumnosOT() {
+    public ListaProfesores getAlumnosOT() {
         //Aquí va el código.
     }
 
@@ -49,7 +63,7 @@ public class Administrador extends Usuario {
      * Regresa la lista de profesores totales.
      * @return la lista de profesores totales.
      */
-    public ComponenteLista getProfesores() {
+    public ListaProfesores getProfesores() {
         //Aquí va el código.
     }
 
