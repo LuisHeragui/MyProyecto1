@@ -57,35 +57,33 @@ public class ListaProfesores implements Lista<Profesor> {
     }
 
     /**
-     * Agrega un componente al componente actual.
-     * @param componente el componente a agregar.
+     * Agrega un profesor a la lista.
+     * @param profesor el profesor a agregar.
      */
-    @Override public void agrega(ComponenteLista componente) {
-        if (componente instanceof Profesor) {
-            for (int i = 0; i < profesores.length, i++) {
-                if (profesores[i] != null)
-                    continue;
-                else {
-                    profesores[i] = (Profesor)componente;
-                    selectionSort(profesores);
-                    if (i == profesores.length - 1)
-                        estaLlena = true;
-                    return;
-                }
+    @Override public void agrega(Profesor profesor) {
+        for (int i = 0; i < profesores.length, i++) {
+            if (profesores[i] != null)
+                continue;
+            else {
+                profesores[i] = profesor;
+                selectionSort(profesores);
+                if (i == profesores.length - 1)
+                    estaLlena = true;
+                return;
             }
-            estaLlena = true;
-            System.out.println("La lista de profesores está llena.");
         }
+        estaLlena = true;
+        System.out.println("La lista de profesores está llena.");
         return;
     }
 
     /**
-     * Elimina un componente del componente actual.
-     * @param componente el componente a eliminar.
+     * Elimina un profesor de la lista.
+     * @param profesor el profesor a eliminar.
      */
-    @Override public void elimina(ComponenteLista componente) {
+    @Override public void elimina(Profesor profesor) {
         for (int i = 0; i < profesores.length; i++)
-            if (profesores[i].equals(componente))
+            if (profesores[i].equals(profesor))
                 profesores[i] = null;
             else
                 continue;
@@ -93,18 +91,27 @@ public class ListaProfesores implements Lista<Profesor> {
     }
 
     /**
-     * Regresa una representación en cadena del componente.
-     * @return una representación en cadena del componente.
+     * Regresa una representación en cadena de la lista.
+     * @return una representación en cadena de la lista.
      */
     @Override public String toString() {
-        return Arrays.toString(profesores);
+        String s = "";
+        Iterador<Profesor> iterador = this.creaIterador();
+        if (iterador.hasNext()) {
+            Profesor profesor = iterador.next();
+            s += profesor.toString();
+        }
+        while (iterador.hasNext()) {
+            Profesor profesor = iterador.next();
+            s += ", " + profesor.toString();
+        }
     }
 
     /**
-     * Regresa un iterador para poder iterar al componente.
-     * @return un iterador para iterar al componente.
+     * Regresa un iterador para poder iterar la lista.
+     * @return un iterador para iterar la lista.
      */
     @Override public Iterador creaIterador() {
-        return new IteradorCompuesto(new IteradorListaProfesores(profesores));
+        return new IteradorListaProfesores(profesores);
     }
 }
