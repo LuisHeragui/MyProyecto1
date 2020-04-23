@@ -11,9 +11,9 @@ public class Alumno extends AlumnoAbstracto {
     /* El id del alumno. */
     private int id;
     /* La lista de materias del alumno. */
-    private ArrayList<Materia> materias;
+    private Lista<Materia> materias;
     /* La lista de profesores del alumno. */
-    private ArrayList<Profesor> profesores;
+    private Lista<Profesor> profesores;
     /* El promedio del alumno. */
     private double promedio;
 
@@ -24,8 +24,8 @@ public class Alumno extends AlumnoAbstracto {
      * @param materias las materias del alumno.
      * @param profesores los profesores del alumno.
      */
-    public Alumno(String nombre, int id, ArrayList<Materia> materias,
-                  ArrayList<Profesor> profesores) {
+    public Alumno(String nombre, int id, ListaMaterias materias,
+                  ListaProfesores profesores) {
         this.nombre = nombre;
         this.id = id;
         this.materias = materias;
@@ -53,7 +53,7 @@ public class Alumno extends AlumnoAbstracto {
      * Regresa la lista de materias del alumno.
      * @return la lista de materias del alumno.
      */
-    @Override public ArrayList<Materia> getMaterias() {
+    @Override public ListaMaterias getMaterias() {
         return materias;
     }
 
@@ -61,7 +61,7 @@ public class Alumno extends AlumnoAbstracto {
      * Regresa la lista de profesores del alumno.
      * @return la lista de profesores del alumno.
      */
-    @Override public ArrayList<String> getProfesores() {
+    @Override public ListaProfesores getProfesores() {
         return profesores;
     }
 
@@ -69,8 +69,14 @@ public class Alumno extends AlumnoAbstracto {
      * Regresa el promedio del alumno.
      * @return el promedio del alumno.
      */
-    @OVerride public abstract double getPromedio() {
-        //Aquí va el código.
+    @OVerride public double getPromedio() {
+        int suma = 0;
+        Iterador<Materia> iterador = materias.creaIterador();
+        while (iterador.hasNext()) {
+            Materia materia = iterador.next();
+            suma += materia.getCalificacion();
+        }
+        return suma/materias.size();
     }
 
     /**

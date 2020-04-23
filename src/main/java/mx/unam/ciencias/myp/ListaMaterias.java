@@ -19,6 +19,14 @@ public class ListaMaterias implements Lista<Materia> {
     }
 
     /**
+     * Regresa la longitud de la lista.
+     * @return la longitud de la lista.
+     */
+    public int getLongitud() {
+        return materias.size();
+    }
+
+    /**
      * Agrega una materia a la lista.
      * @param materia al materia a agregar.
      */
