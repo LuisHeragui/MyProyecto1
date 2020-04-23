@@ -1,7 +1,6 @@
 package mx.unam.ciencias.myp;
 
-import java.util.TreeMap;
-import java.util.Map;
+import java.util.Hashtable;
 
 /**
  * Clase para representar una lista de alumnos.
@@ -10,13 +9,13 @@ import java.util.Map;
 public class ListaAlumnos implements Lista {
 
     /* La lista de alumnos. */
-    private TreeMap<Integer, AlumnoAbstracto> listaAlumnos;
+    private Hashtable<Integer, AlumnoAbstracto> listaAlumnos;
 
     /**
      * Constructor que define el estado incial de la lista de alumnos.
      */
     public ListaAlumnos() {
-        listaAlumnos = new TreeMap<>();
+        listaAlumnos = new Hashtable<>();
     }
 
     /**
@@ -28,6 +27,10 @@ public class ListaAlumnos implements Lista {
      */
     public boolean contiene(AlumnoAbstracto alumno) {
         return listaAlumnos.containsValue(alumno);
+    }
+
+    public Hashtable getListaAlumnos() {
+        return listaAlumnos;
     }
 
     /**
@@ -56,8 +59,7 @@ public class ListaAlumnos implements Lista {
         String s = "";
         Iterador<Object> iterador = this.creaIterador();
         while (iterador.hasNext()) {
-            Map.Entry me = (Map.Entry)iterador.next();
-            AlumnoAbstracto alumno = (AlumnoAbstracto)me.getValue();
+            AlumnoAbstracto alumno = (AlumnoAbstracto)iterador.next();
             s += alumno.toString() + "\n";
         }
         return s;

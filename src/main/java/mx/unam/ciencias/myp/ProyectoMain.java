@@ -645,7 +645,7 @@ public class ProyectoMain{
 									opcion = sc.nextInt();				//hacer método
 									Profesor profesor = administrador.getProfesor(opcion);
 									imprime("\nBienvenido, profesor " +
-											profesor.getNombre());
+											profesor.getNombre() + "\n");
 									profesor.imprimirMenu();
 									imprime("\n¿Qué desea hacer?\n");
 									while (sc.hasNext()) {

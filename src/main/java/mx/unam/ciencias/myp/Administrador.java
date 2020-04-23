@@ -30,10 +30,9 @@ public class Administrador extends Usuario {
         while (iteradorP.hasNext()) {
             Profesor profesor = (Profesor)iteradorP.next();
             ListaAlumnos alumnosProf = profesor.getListaAlumnos();
-            Iterador<Object> iteradorM = alumnosProf.creaIterador();
-            while (iteradorM.hasNext()) {
-                Map.Entry me = (Map.Entry)iteradorM.next();
-                AlumnoAbstracto alumno = (AlumnoAbstracto)me.getValue();
+            Iterador<Object> iteradorA = alumnosProf.creaIterador();
+            while (iteradorA.hasNext()) {
+                AlumnoAbstracto alumno = (AlumnoAbstracto)iteradorA.next();
                 if (alumno.getID() == id)
                     return alumno;
                 continue;
@@ -70,10 +69,9 @@ public class Administrador extends Usuario {
         while (iteradorP.hasNext()) {
             Profesor profesor = (Profesor)iteradorP.next();
             ListaAlumnos alumnosProf = profesor.getListaAlumnos();
-            Iterador<Object> iteradorM = alumnosProf.creaIterador();
-            while (iteradorM.hasNext()) {
-                Map.Entry me = (Map.Entry)iteradorM.next();
-                AlumnoAbstracto alumno = (AlumnoAbstracto)me.getValue();
+            Iterador<Object> iteradorA = alumnosProf.creaIterador();
+            while (iteradorA.hasNext()) {
+                AlumnoAbstracto alumno = (AlumnoAbstracto)iteradorA.next();
                 if (alumnos.contiene(alumno))
                     continue;
                 else
@@ -114,10 +112,9 @@ public class Administrador extends Usuario {
             if (materia1.equals(profesor.consultarCurso()) ||
                 materia2.equals(profesor.consultarCurso())) {
                 ListaAlumnos alumnosProf = profesor.getListaAlumnos();
-                Iterador<Object> iteradorM = alumnosProf.creaIterador();
-                while (iteradorM.hasNext()) {
-                    Map.Entry me = (Map.Entry)iteradorM.next();
-                    AlumnoAbstracto alumno = (AlumnoAbstracto)me.getValue();
+                Iterador<Object> iteradorA = alumnosProf.creaIterador();
+                while (iteradorA.hasNext()) {
+                    AlumnoAbstracto alumno = (AlumnoAbstracto)iteradorA.next();
                     if (alumnos.contiene(alumno))
                         continue;
                     else
@@ -152,10 +149,9 @@ public class Administrador extends Usuario {
             Profesor profesor = (Profesor)iteradorP.next();
             if (opcionTecnica.equals(profesor.consultarCurso())) {
                 ListaAlumnos alumnosProf = profesor.getListaAlumnos();
-                Iterador<Object> iteradorM = alumnosProf.creaIterador();
-                while (iteradorM.hasNext()) {
-                    Map.Entry me = (Map.Entry)iteradorM.next();
-                    AlumnoAbstracto alumno = (AlumnoAbstracto)me.getValue();
+                Iterador<Object> iteradorA = alumnosProf.creaIterador();
+                while (iteradorA.hasNext()) {
+                    AlumnoAbstracto alumno = (AlumnoAbstracto)iteradorA.next();
                     alumnos.agrega(alumno);
                 }
                 return alumnos.toString();
@@ -234,10 +230,9 @@ public class Administrador extends Usuario {
         while (iteradorP.hasNext()) {
             Profesor profesor = (Profesor)iteradorP.next();
             ListaAlumnos alumnosProf = profesor.getListaAlumnos();
-            Iterador<Object> iteradorM = alumnosProf.creaIterador();
-            while (iteradorM.hasNext()) {
-                Map.Entry me = (Map.Entry)iteradorM.next();
-                AlumnoAbstracto alumno = (AlumnoAbstracto)me.getValue();
+            Iterador<Object> iteradorA = alumnosProf.creaIterador();
+            while (iteradorA.hasNext()) {
+                AlumnoAbstracto alumno = (AlumnoAbstracto)iteradorA.next();
                 if (id == alumno.getID())
                     alumnosProf.elimina(alumno);
                 continue;
@@ -280,8 +275,7 @@ public class Administrador extends Usuario {
                 ListaAlumnos alumnosProf = profesor.getListaAlumnos();
                 Iterador<Object> iteradorM = alumnosProf.creaIterador();
                 while (iteradorM.hasNext()) {
-                    Map.Entry me = (Map.Entry)iteradorM.next();
-                    AlumnoAbstracto alumno = (AlumnoAbstracto)me.getValue();
+                    AlumnoAbstracto alumno = (AlumnoAbstracto)iterador.next();
                     alumno.getProfesores().elimina(profesor);
                 }
                 profesores.elimina(profesor);
