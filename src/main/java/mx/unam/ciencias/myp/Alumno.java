@@ -76,7 +76,7 @@ public class Alumno extends AlumnoAbstracto {
             Materia materia = iterador.next();
             suma += materia.getCalificacion();
         }
-        return suma/materias.size();
+        return suma/materias.longitud();
     }
 
     /**

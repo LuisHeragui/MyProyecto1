@@ -22,7 +22,7 @@ public class ListaMaterias implements Lista<Materia> {
      * Regresa la longitud de la lista.
      * @return la longitud de la lista.
      */
-    public int getLongitud() {
+    public int longitud() {
         return materias.size();
     }
 
