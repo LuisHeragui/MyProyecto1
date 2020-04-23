@@ -30,7 +30,7 @@ public class ProyectoMain{
 		Materia artesPlasticasA = new Materia("Artes Plásticas", "A");
 		Materia artesPlasticasB = new Materia("Artes Plásticas", "B");
 		OpcionTecnica agenteViajesHoteleria = new OpcionTecnica("Agente de Viajes y Hotelería", "");
-		OpcionTecnica fotografoLaboratoristaPrensa = OpcionTecnica("Fotógrafo Laboratorista y Prensa", "");
+		OpcionTecnica fotografoLaboratoristaPrensa = new OpcionTecnica("Fotógrafo Laboratorista y Prensa", "");
 		OpcionTecnica nutriologo = new OpcionTecnica("Nutriólogo", "");
 		OpcionTecnica laboratoristaQuimico = new OpcionTecnica("Laboratorista Químico", "");
 
@@ -42,8 +42,8 @@ public class ProyectoMain{
 		administrador.contratarProfesor("Claudia", idProfesor++, historiaA);
 		administrador.contratarProfesor("Regina", idProfesor++, cienciasSocialesA);
 		administrador.contratarProfesor("Pepe", idProfesor++, filosofiaA);
-		administrador.contratarProfesor("Vaquero", idProfesor++, artesPlásticasA);
-		administrador.contratarProfesor("Salama", idProfesor++, agenteViajesyHotelería);
+		administrador.contratarProfesor("Vaquero", idProfesor++, artesPlasticasA);
+		administrador.contratarProfesor("Salma", idProfesor++, agenteViajesHoteleria);
 		administrador.contratarProfesor("Chaneque", idProfesor++, fotografoLaboratoristaPrensa);
 		administrador.contratarProfesor("Dafne", idProfesor++, nutriologo);
 		administrador.contratarProfesor("Fernando", idProfesor++, laboratoristaQuimico);
@@ -68,15 +68,15 @@ public class ProyectoMain{
 		materias.agrega(biologiaA);
 		materias.agrega(quimicaA);
 
-		//Segeundo Grupo
-		administrador.inscribirAlumno("Agustin", idAlumno++, materias);
-		administrador.inscribirAlumno("Ricardo", idAlumno++, materias);
-		administrador.inscribirAlumno("Montserrat", idAlumno++, materias);
-		administrador.inscribirAlumno("Emilia", idAlumno++, materias);
-		administrador.inscribirAlumno("Luisa", idAlumno++, materias);
-		administrador.inscribirAlumno("Rafael", idAlumno++, materias);
-		administrador.inscribirAlumno("Alfonso", idAlumno++, materias);
-		administrador.inscribirAlumno("Angela", idAlumno++, materias);
+		//Segundo Grupo
+		administrador.inscribirAlumno("Luffy", idAlumno++, materias);
+		administrador.inscribirAlumno("Zoro", idAlumno++, materias);
+		administrador.inscribirAlumno("Nami", idAlumno++, materias);
+		administrador.inscribirAlumno("Usopp", idAlumno++, materias);
+		administrador.inscribirAlumno("Sanji", idAlumno++, materias);
+		administrador.inscribirAlumno("Chopper", idAlumno++, materias);
+		administrador.inscribirAlumno("Franky", idAlumno++, materias);
+		administrador.inscribirAlumno("Robin", idAlumno++, materias);
 
 		materias.limpia();
 		materias.agrega(historiaA);
@@ -95,7 +95,7 @@ public class ProyectoMain{
 
 		materias.limpia();
 		materias.agrega(filosofiaA);
-		materias.agrega(artesPlásticasA);
+		materias.agrega(artesPlasticasA);
 
 
 		//Cuarto Grupo
@@ -107,21 +107,6 @@ public class ProyectoMain{
 		administrador.inscribirAlumno("Shoji", idAlumno++, materias);
 		administrador.inscribirAlumno("Ino", idAlumno++, materias);
 		administrador.inscribirAlumno("Shikamaru", idAlumno++, materias);
-
-		materias.limpia();
-		materias.agrega();
-		materias.agrega();
-
-
-		//Quinto Grupo
-		administrador.inscribirAlumno("Luffy", idAlumno++, materias);
-		administrador.inscribirAlumno("Zoro", idAlumno++, materias);
-		administrador.inscribirAlumno("Nami", idAlumno++, materias);
-		administrador.inscribirAlumno("Usopp", idAlumno++, materias);
-		administrador.inscribirAlumno("Sanji", idAlumno++, materias);
-		administrador.inscribirAlumno("Chopper", idAlumno++, materias);
-		administrador.inscribirAlumno("Franky", idAlumno++, materias);
-		administrador.inscribirAlumno("Robin", idAlumno++, materias);
 
 
 		Scanner sc = new Scanner(System.in);
@@ -198,7 +183,7 @@ public class ProyectoMain{
 														"\n¿De qué área desea consultar los alumnos?\n");
 												while (sc.hasNext()) {
 													if (sc.hasNextInt()) {
-														opcion = nextInt();
+														opcion = sc.nextInt();
 														imprime(administrador.getAlumnosArea(opcion));
 													} else {
 														limpiaPantalla();
@@ -228,7 +213,7 @@ public class ProyectoMain{
 														"\n¿De qué opción técnica desea consultar los alumnos?\n");
 												while (sc.hasNext()) {
 													if (sc.hasNextInt()) {
-														opcion = nextInt();
+														opcion = sc.nextInt();
 														imprime(administrador.getAlumnosOT(opcion));
 													} else {
 														limpiaPantalla();
@@ -338,9 +323,9 @@ public class ProyectoMain{
 																	grupo = 0;
 																}
 																imprime("\nEscriba el nombre del alumno.\n");
-																String nombre = sc.next();
-																administrador.inscribirAlumno(nombre, idAlumno++, materias);
-																imprime("\nAlumno " + nombre + "inscrito.");
+																String nombre2 = sc.next();
+																administrador.inscribirAlumno(nombre2, idAlumno++, materias);
+																imprime("\nAlumno " + nombre2 + "inscrito.");
 																break;
 															case 3:
 																materias.limpia();
@@ -354,25 +339,25 @@ public class ProyectoMain{
 																	grupo = 0;
 																}
 																imprime("\nEscriba el nombre del alumno.\n");
-																String nombre = sc.next();
-																administrador.inscribirAlumno(nombre, idAlumno++, materias);
-																imprime("\nAlumno " + nombre + "inscrito.");
+																String nombre3 = sc.next();
+																administrador.inscribirAlumno(nombre3, idAlumno++, materias);
+																imprime("\nAlumno " + nombre3 + "inscrito.");
 																break;
 															case 4:
 																materias.limpia();
 																if (grupo == 0) {
-																	materias.agrega(filosofíaA);
-																	materias.agrega(artesPlásticasA);
+																	materias.agrega(filosofiaA);
+																	materias.agrega(artesPlasticasA);
 																	grupo = 1;
 																} else {
-																	materias.agrega(filosofíaB);
-																	materias.agrega(artesPlásticasB);
+																	materias.agrega(filosofiaB);
+																	materias.agrega(artesPlasticasB);
 																	grupo = 0;
 																}
 																imprime("\nEscriba el nombre del alumno.\n");
-																String nombre = sc.next();
-																administrador.inscribirAlumno(nombre, idAlumno++, materias);
-																imprime("\nAlumno " + nombre + "inscrito.");
+																String nombre4 = sc.next();
+																administrador.inscribirAlumno(nombre4, idAlumno++, materias);
+																imprime("\nAlumno " + nombre4 + "inscrito.");
 																break;
 															default:
 																imprime("\nIngrese una opción válida.\n");
@@ -409,7 +394,7 @@ public class ProyectoMain{
 												while (sc.hasNext()) {
 													if (sc.hasNextInt()) {
 														opcion = sc.nextInt();
-														administrador.baja(opcion);
+														administrador.bajaAlumno(opcion);
 														imprime("\nAlumno " + opcion +
 																" dado de baja.");
 														break;
