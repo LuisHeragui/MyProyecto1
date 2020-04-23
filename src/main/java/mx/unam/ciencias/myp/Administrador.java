@@ -257,12 +257,12 @@ public class Administrador extends Usuario {
         }
         if (curso instanceof Materia) {
             Materia materia = (Materia)curso;
-            Profesor profesor = new Profesor(nombre, id, materia.getNombre());
+            Profesor profesor = new Profesor(nombre, id, materia.getNombre(), materia.getGrupo());
             profesores.agrega(profesor);
         }
         else if (curso instanceof OpcionTecnica) {
             OpcionTecnica opcionTecnica = (OpcionTecnica)curso;
-            Profesor profesor = new Profesor(nombre, id, opcionTecnica.getNombre());
+            Profesor profesor = new Profesor(nombre, id, opcionTecnica.getNombre(), opcionTecnica.getGrupo());
             profesores.agrega(profesor);
         }
     }
