@@ -52,7 +52,7 @@ public class ListaAlumnos implements Lista<AlumnoAbstracto> {
      */
     @Override public String toString() {
         String s = "";
-        Iterador<Materia> iterador = this.creaIterador();
+        Iterador<Map.Entry> iterador = this.creaIterador();
         while (iterador.hasNext()) {
             Map.Entry me = (Map.Entry)iterador.next();
             AlumnoAbstracto alumno = me.getValue();

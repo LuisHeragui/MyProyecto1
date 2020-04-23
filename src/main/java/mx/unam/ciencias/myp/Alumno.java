@@ -105,6 +105,14 @@ public class Alumno extends AlumnoAbstracto {
     }
 
     /**
+     * Nos dice si el alumno cursa una opción técnica.
+     * @return true si el alumno cursa una opción técnica, o false en otro caso.
+     */
+    @Override public boolean tieneOT() {
+        return false;
+    }
+
+    /**
      * Regresa una representación en cadena del componente.
      * @return una representación en cadena del componente.
      */

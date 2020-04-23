@@ -81,7 +81,7 @@ public class AlumnoDecorador extends AlumnoAbstracto {
                 return m.getCalificacion();
             iterador.next();
         }
-        return System.out.println("No se encontró la matria")        
+        return System.out.println("No se encontró la matria")
     }
 
     /**
@@ -101,6 +101,14 @@ public class AlumnoDecorador extends AlumnoAbstracto {
     @Override public AlumnoDecorador inscribirOT(OpcionTecnica opcionTecnica) {
         System.out.println("El alumno ya está inscrito en una opción técnica")
         return this;
+    }
+
+    /**
+     * Nos dice si el alumno cursa una opción técnica.
+     * @return true si el alumno cursa una opción técnica, o false en otro caso.
+     */
+    @Override public boolean tieneOT() {
+        return true;
     }
 
     /**

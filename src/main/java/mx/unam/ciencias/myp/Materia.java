@@ -8,19 +8,19 @@ public class Materia {
 
 	/* El nombre de la materia. */
 	private String nombre;
+	/* El grupo de la materia. */
+	private String grupo;
 	/* La calificación asignada a la materia. */
 	private int calificacion;
-	/* El profesor asignado a la materia. */
-	private Profesor profesor;
 
 	/**
      * Constructor que define el estado inicial de una materia.
      * @param nombre el nombre de la materia;
      */
-	public Materia(String nombre) {
+	public Materia(String nombre, String grupo) {
 		this.nombre = nombre;
+		this.grupo = grupo;
 		calificacion = 10;
-		profesor = null;
 	}
 
 	/**
@@ -29,6 +29,14 @@ public class Materia {
      */
 	public String getNombre() {
 		return nombre;
+	}
+
+	/**
+     * Regresa el grupo de la materia.
+     * @return el grupo de la materia.
+     */
+	public String getGrupo() {
+		return grupo;
 	}
 
 	/**

@@ -7,19 +7,19 @@ public class OpcionTecnica {
 
     /* El nombre de la opción técnica. */
     private String nombre;
+    /* El grupo de la materia. */
+	private String grupo;
     /* La calificación asignada a la opción técnica. */
     private int calificacion;
-    /* El profesor asignado a la opción técnica. */
-    private Profesor profesor;
 
     /**
      * Constructor que define el estado inicial de una opción técnica.
      * @param nombre el nombre de la opción técnica;
      */
-    public OpcionTecnica(String nombre) {
+    public OpcionTecnica(String nombre, String grupo) {
         this.nombre = nombre;
+        this.grupo = grupo;
         calificacion = 10;
-        profesor = null;
     }
 
     /**
@@ -29,6 +29,14 @@ public class OpcionTecnica {
     public String getNombre() {
         return nombre;
     }
+
+    /**
+     * Regresa el grupo de la materia.
+     * @return el grupo de la materia.
+     */
+	public String getGrupo() {
+		return grupo;
+	}
 
     /**
      * Regresa la calificación de la opción técnica.

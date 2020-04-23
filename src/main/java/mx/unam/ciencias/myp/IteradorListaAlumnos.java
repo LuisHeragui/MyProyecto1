@@ -6,7 +6,7 @@ import java.util.Iterator;
 /**
  * Clase que asigna el comportamiento del iterador de la lista de alumnos.
  */
-public class IteradorListaAlumnos implements Iterador<> {
+public class IteradorListaAlumnos implements Iterador<Map.Entry> {
 
     /* La tabla sobre la que se va a iterar. */
     private TreeMap<Integer, AlumnoAbstracto> listaAlumnos;

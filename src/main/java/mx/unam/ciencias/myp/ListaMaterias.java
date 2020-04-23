@@ -51,11 +51,11 @@ public class ListaMaterias implements Lista<Materia> {
         Iterador<Materia> iterador = this.creaIterador();
         if (iterador.hasNext()) {
             Materia materia = iterador.next();
-            s += materia.getNombre();
+            s += materia.getNombre() + ": " + materia.getCalificacion();
         }
         while (iterador.hasNext()) {
             Materia materia = iterador.next();
-            s += ", " + materia.getNombre();
+            s += ", " + materia.getNombre() + ": " + materia.getCalificacion();
         }
     }
 
