@@ -27,6 +27,13 @@ public class ListaMaterias implements Lista<Materia> {
     }
 
     /**
+     * Limpia la lista de materias.
+     */
+    public void limpia() {
+        materias.clear();
+    }
+
+    /**
      * Agrega una materia a la lista.
      * @param materia al materia a agregar.
      */
