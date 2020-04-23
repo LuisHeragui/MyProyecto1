@@ -96,8 +96,8 @@ public class Profesor extends Usuario implements Universitario {
             } else
                 continue;
         }
-        System.out.println("El alumno " + alumno.toString() + "no se " +
-                           "encuentra en la lista de alumnos.");
+        System.out.println("El alumno seleccionado no se encuentra en la " +
+                           "lista de alumnos.");
         return;
     }
 
