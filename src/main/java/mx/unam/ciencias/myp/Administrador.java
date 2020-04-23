@@ -69,12 +69,11 @@ public class Administrador extends Usuario {
         while (iteradorP.hasNext()) {
             Profesor profesor = (Profesor)iteradorP.next();
             ListaAlumnos alumnosProf = profesor.getListaAlumnos();
+            System.out.println(alumnosProf.toString());
             Iterador<Object> iteradorA = alumnosProf.creaIterador();
             while (iteradorA.hasNext()) {
                 AlumnoAbstracto alumno = (AlumnoAbstracto)iteradorA.next();
-                if (alumnos.contiene(alumno))
-                    continue;
-                else
+                if (!alumnos.contiene(alumno))
                     alumnos.agrega(alumno);
             }
         }
@@ -199,7 +198,7 @@ public class Administrador extends Usuario {
      * @param nombre el nombre del alumno.
      */
     public void inscribirAlumno(String nombre, int id, ListaMaterias materias) {
-        ListaProfesores profesores = new ListaProfesores();
+        ListaProfesores profesAlumno = new ListaProfesores();
         Iterador<Object> iteradorP = profesores.creaIterador();
         while (iteradorP.hasNext()) {
             Profesor profesor = (Profesor)iteradorP.next();
@@ -207,13 +206,13 @@ public class Administrador extends Usuario {
             while (iteradorM.hasNext()) {
                 Materia materia = (Materia)iteradorM.next();
                 if (profesor.consultarCurso().equals(materia.getNombre()))
-                    profesores.agrega(profesor);
-                else
-                    continue;
+                    profesAlumno.agrega(profesor);
             }
+            if (profesAlumno.tiene2Profesores())
+                break;
         }
-        AlumnoAbstracto alumno = new Alumno(nombre, id, materias, profesores);
-        Iterador<Object> iterador = profesores.creaIterador();
+        AlumnoAbstracto alumno = new Alumno(nombre, id, materias, profesAlumno);
+        Iterador<Object> iterador = profesAlumno.creaIterador();
         while (iterador.hasNext()) {
             Profesor profesor = (Profesor)iterador.next();
             profesor.getListaAlumnos().agrega(alumno);

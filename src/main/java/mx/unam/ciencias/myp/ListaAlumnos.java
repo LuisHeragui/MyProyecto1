@@ -26,10 +26,10 @@ public class ListaAlumnos implements Lista {
      * caso.
      */
     public boolean contiene(AlumnoAbstracto alumno) {
-        return listaAlumnos.containsValue(alumno);
+        return listaAlumnos.contains(alumno);
     }
 
-    public Hashtable getListaAlumnos() {
+    public Hashtable alumnos() {
         return listaAlumnos;
     }
 
@@ -38,8 +38,11 @@ public class ListaAlumnos implements Lista {
      * @param alumno el alumno a agregar.
      */
     @Override public void agrega(Object objeto) {
-        AlumnoAbstracto alumno = (AlumnoAbstracto)objeto;
-        listaAlumnos.put(alumno.getID(), alumno);
+        if (objeto instanceof AlumnoAbstracto) {
+            AlumnoAbstracto alumno = (AlumnoAbstracto)objeto;
+            listaAlumnos.put(alumno.getID(), alumno);
+        }
+        return;
     }
 
     /**

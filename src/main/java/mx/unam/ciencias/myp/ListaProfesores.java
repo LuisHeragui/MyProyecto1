@@ -26,6 +26,17 @@ public class ListaProfesores implements Lista {
     }
 
     /**
+     * Nos dice si el arreglo tiene al menos dos profesores.
+     * @return true si el arreglo tiene al menos dos profesores
+     * false en otro caso.
+     */
+    public boolean tiene2Profesores() {
+        if (profesores[0] != null && profesores[1] != null)
+            return true;
+        return false;
+    }
+
+    /**
      * Regresa true si la lista esta llena, o false en otro caso.
      * @return true si la lista esta llena, o false en otro caso.
      */

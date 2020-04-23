@@ -9,6 +9,8 @@ public class IteradorListaAlumnos implements Iterador<Object> {
 
     /* La tabla sobre la que se va a iterar. */
     private Hashtable<Integer, AlumnoAbstracto> listaAlumnos;
+    /* La posicion del iterador. */
+    int posicion = 0;
 
     /**
      * Constructor que define el estado inicial del iterable para ser iterado.
@@ -23,7 +25,9 @@ public class IteradorListaAlumnos implements Iterador<Object> {
      * @return true si hay un elemento siguiente, false en otro caso.
      */
     @Override public boolean hasNext() {
-        return listaAlumnos.values().iterator().hasNext();
+        if(posicion >= listaAlumnos.size() || listaAlumnos.get(posicion) == null)
+            return false;
+        return true;
     }
 
     /**
@@ -31,6 +35,11 @@ public class IteradorListaAlumnos implements Iterador<Object> {
      * @return el elemento siguiente.
      */
     @Override public AlumnoAbstracto next() {
-        return listaAlumnos.values().iterator().next();
+        if (hasNext()) {
+            AlumnoAbstracto alumno = listaAlumnos.get(posicion);
+            posicion++;
+            return alumno;
+        }
+        return null;
     }
 }
