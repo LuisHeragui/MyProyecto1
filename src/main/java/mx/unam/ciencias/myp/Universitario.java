@@ -3,7 +3,7 @@ package mx.unam.ciencias.myp;
 /**
  * Interfaz que define el comportamiento de los universitarios.
  */
-public interface Universitario<T> {
+public interface Universitario {
 
     /**
      * Regresa el nombre del universitario.
@@ -29,5 +29,5 @@ public interface Universitario<T> {
      * @return true si el universitario es igual al universitario especificado,
      * o false en otro caso.
      */
-    public boolean equals(T universitario);
+    public boolean equals(Object universitario);
 }

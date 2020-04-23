@@ -5,7 +5,7 @@ package mx.unam.ciencias.myp;
  * Extiende a Usuario e Implementa Universitario<T>.
  */
 public abstract class AlumnoAbstracto extends Usuario
-implements Universitario<AlumnoAbstracto> {
+implements Universitario {
 
     /**
      * Regresa el nombre del alumno.
@@ -19,8 +19,8 @@ implements Universitario<AlumnoAbstracto> {
      * Regresa el id del alumno.
      * @return el id del alumno.
      */
-    @Override public abstract int getID() {
-        return null;
+    @Override public int getID() {
+        return 0;
     }
 
     /**
@@ -84,7 +84,7 @@ implements Universitario<AlumnoAbstracto> {
      * @return true si el objeto es igual al objeto recibido, o false en otro
      * caso.
      */
-    @Override public boolean equals(AlumnoAbstracto alumno) {
-        return null;
+    @Override public boolean equals(Object alumno) {
+        return false;
     }
 }

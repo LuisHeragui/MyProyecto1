@@ -38,6 +38,6 @@ public class IteradorListaAlumnos implements Iterador<Map.Entry> {
     @Override public Map.Entry next() {
         Set set = listaAlumnos.entrySet();
         Iterator i = set.iterator();
-        return i.next();
+        return (Map.Entry)i.next();
     }
 }

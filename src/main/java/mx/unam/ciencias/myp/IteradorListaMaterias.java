@@ -1,6 +1,6 @@
 package mx.unam.ciencias.myp;
 
-import java.util.Stack;
+import java.util.ArrayList;
 
 /**
  * Clase que asigna el comportamiento del iterador de la lista de materias.

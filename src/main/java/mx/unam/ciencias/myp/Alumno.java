@@ -127,10 +127,13 @@ public class Alumno extends AlumnoAbstracto {
      * @return true si el objeto es igual al objeto recibido, o false en otro
      * caso.
      */
-    @Override public boolean equals(AlumnoAbstracto alumno) {
-        if (this.getNombre().equals(alumno.getNombre()) &&
-            this.getID() == alumno.getID())
-            return true;
+    @Override public boolean equals(Objeto objeto) {
+        if (objeto instanceof Alumno) {
+            Alumno alumno = (Alumno)objeto;
+            if (this.getNombre().equals(alumno.getNombre()) &&
+                this.getID() == alumno.getID())
+                return true;
+        }
         return false;
     }
 }

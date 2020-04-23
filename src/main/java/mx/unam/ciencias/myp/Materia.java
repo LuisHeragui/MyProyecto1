@@ -55,20 +55,19 @@ public class Materia {
         this.calificacion = calificacion;
     }
 
-    /**
-     * Regresa el profesor de la materia.
-     * @return el profesor de la materia.
-     */
-    public Profesor getProfesor() {
-        return profesor;
-    }
+    ///**
+    // * Regresa el profesor de la materia.
+    // * @return el profesor de la materia.
+    // */
+    //public Profesor getProfesor() {
+    //    return profesor;
+    //}
 
-    /**
-     * Define al profesor de la materia.
-     * @param profesor el profesor de la materia.
-     */
-    public void setProfesor(Profesor profesor) {
-        this.profesor = profesor;
-    }
-
+    ///**
+    // * Define al profesor de la materia.
+    // * @param profesor el profesor de la materia.
+    // */
+    //public void setProfesor(Profesor profesor) {
+    //    this.profesor = profesor;
+    //}
 }

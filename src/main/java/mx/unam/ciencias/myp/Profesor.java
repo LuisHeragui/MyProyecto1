@@ -4,7 +4,7 @@ package mx.unam.ciencias.myp;
  * Clase abstracta que define a un profesor.
  * Extiende a Usuario e implementa Universitario<T>.
  */
-public class Profesor extends Usuario implements Universitario<Profesor> {
+public class Profesor extends Usuario implements Universitario {
 
     /* El nombre del profesor. */
     private String nombre;
@@ -45,7 +45,7 @@ public class Profesor extends Usuario implements Universitario<Profesor> {
      * Regresa el id del profesor.
      * @return el id del profesor.
      */
-    @Override public String getID() {
+    @Override public int getID() {
         return id;
     }
 
@@ -115,10 +115,13 @@ public class Profesor extends Usuario implements Universitario<Profesor> {
      * @return true si el profesor es igual al profesor especificado, o false en
      * otro caso.
      */
-    @Override public boolean equals(Profesor profesor) {
-        if (this.getNombre().equals(profesor.getNombre()) &&
-            this.getID() == profesor.getID())
+    @Override public boolean equals(Object objeto) {
+        if (objeto instanceof Profesor) {
+            Profesor profesor = (Profesor)objeto;
+            if (this.getNombre().equals(profesor.getNombre()) &&
+                this.getID() == profesor.getID())
             return true;
+        }
         return false;
     }
 }
