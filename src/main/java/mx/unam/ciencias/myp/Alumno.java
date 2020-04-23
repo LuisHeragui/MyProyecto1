@@ -100,7 +100,7 @@ public class Alumno extends AlumnoAbstracto {
      * @param opcionTecnica la opción técnica a inscribir.
      * @return el alumno actualizado.
      */
-    public AlumnoDecorador inscribirOT(OpcionTecnica opcionTecnica) {
+    @Override public AlumnoDecorador inscribirOT(OpcionTecnica opcionTecnica) {
         return new AlumnoDecorador(this, opcionTecnica);
     }
 
@@ -110,5 +110,19 @@ public class Alumno extends AlumnoAbstracto {
      */
     @Override public String toString() {
         return this.getID().toString() + ": " + this.getNombre();
+    }
+
+    /**
+     * Regresa true si el objeto es igual al objeto recibido, o false en otro
+     * caso.
+     * @param alumno el alumno que vamos a comparar.
+     * @return true si el objeto es igual al objeto recibido, o false en otro
+     * caso.
+     */
+    @Override public boolean equals(AlumnoAbstracto alumno) {
+        if (this.getNombre().equals(alumno.getNombre()) &&
+            this.getID() == alumno.getID())
+            return true;
+        return false;
     }
 }

@@ -56,6 +56,14 @@ implements Universitario<AlumnoAbstracto> {
     public abstract int consultarCalificacion(String materia);
 
     /**
+     * Inscribe una opción técnica y regresa al alumno actualizado con la opción
+     * técnica que esta cursando.
+     * @param opcionTecnica la opción técnica a inscribir.
+     * @return el alumno actualizado.
+     */
+    public abstract AlumnoDecorador inscribirOT(OpcionTecnica opcionTecnica);
+
+    /**
      * Regresa una representación en cadena del componente.
      * @return una representación en cadena del componente.
      */

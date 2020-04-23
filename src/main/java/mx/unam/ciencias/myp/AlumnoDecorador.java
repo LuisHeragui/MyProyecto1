@@ -58,8 +58,14 @@ public class AlumnoDecorador extends AlumnoAbstracto {
      * Regresa el promedio del alumno.
      * @return el promedio del alumno.
      */
-    @OVerride public abstract double getPromedio() {
-        //Aquí va el código.
+    @OVerride public double getPromedio() {
+        int suma = 0;
+        Iterador<Materia> iterador = materias.creaIterador();
+        while (iterador.hasNext()) {
+            Materia materia = iterador.next();
+            suma += materia.getCalificacion();
+        }
+        return suma/materias.longitud();
     }
 
     /**
@@ -68,7 +74,14 @@ public class AlumnoDecorador extends AlumnoAbstracto {
      * @return la calificacion del alumno de la materia especificada.
      */
     @Override public int consultarCalificacion(String materia) {
-        //Aquí va el código.
+        Iterador<Materia> iterador = materias.creaIterador();
+        while (iterador.hasNext()) {
+            Materia m = iterador.next();
+            if (m.equals(materia))
+                return m.getCalificacion();
+            iterador.next();
+        }
+        return System.out.println("No se encontró la matria")        
     }
 
     /**
@@ -80,10 +93,35 @@ public class AlumnoDecorador extends AlumnoAbstracto {
     }
 
     /**
+     * Inscribe una opción técnica y regresa al alumno actualizado con la opción
+     * técnica que esta cursando.
+     * @param opcionTecnica la opción técnica a inscribir.
+     * @return el alumno actualizado.
+     */
+    @Override public AlumnoDecorador inscribirOT(OpcionTecnica opcionTecnica) {
+        System.out.println("El alumno ya está inscrito en una opción técnica")
+        return this;
+    }
+
+    /**
      * Regresa una representación en cadena del componente.
      * @return una representación en cadena del componente.
      */
     @Override public String toString() {
-        //Aquí va el código.
+        return this.getID().toString + ": " + this.getNombre();
+    }
+
+    /**
+     * Regresa true si el objeto es igual al objeto recibido, o false en otro
+     * caso.
+     * @param alumno el alumno que vamos a comparar.
+     * @return true si el objeto es igual al objeto recibido, o false en otro
+     * caso.
+     */
+    @Override public boolean equals(AlumnoAbstracto alumno) {
+        if (this.getNombre().equals(alumno.getNombre()) &&
+            this.getID() == alumno.getID())
+            return true;
+        return false;
     }
 }
