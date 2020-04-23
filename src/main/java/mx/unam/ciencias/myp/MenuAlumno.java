@@ -6,9 +6,12 @@ package mx.unam.ciencias.myp;
 public class MenuAlumno implements Menu {
 
 	/**
-	 * Imprime el menu de los alumnos. 
+	 * Imprime el menu de los alumnos.
 	 */
 	public void imprimirMenu () {
-		//Aqui va tu código.
+		System.out.print("1.- Consultar calificaión de alguna materia." + "\n" +
+										 "2.- Consultar Promedio." + "\n" +
+										 "3.- Inscribirse a alguna Opción Tecnica." + "\n"
+										 "0.- Salir." + "\n");
 	}
 }
