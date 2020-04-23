@@ -40,7 +40,7 @@
 	<configuration>
 	  <archive>
 	    <manifest>
-	      <mainClass>mx.unam.ciencias.myp.Proyecto1</mainClass>
+	      <mainClass>mx.unam.ciencias.myp.ProyectoMain</mainClass>
 	    </manifest>
 	  </archive>
 	</configuration>
@@ -60,7 +60,7 @@
 
     </plugins>
 
-    <finalName>proyecto1</finalName>
+    <finalName>proyectoMain</finalName>
   </build>
 
   <properties>
