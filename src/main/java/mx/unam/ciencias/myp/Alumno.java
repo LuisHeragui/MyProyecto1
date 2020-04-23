@@ -85,7 +85,13 @@ public class Alumno extends AlumnoAbstracto {
      * @return la calificacion del alumno de la materia especificada.
      */
     @Override public int consultarCalificacion(String materia) {
-        //Aquí va el código.
+        Iterador<Materia> iterador = materias.creaIterador();
+        while (iterador.hasNext()) {
+            Materia m = iterador.next();
+            if (materia.equals(m.getNombre()))
+                return m.getCalificacion();
+
+        }
     }
 
     /**
