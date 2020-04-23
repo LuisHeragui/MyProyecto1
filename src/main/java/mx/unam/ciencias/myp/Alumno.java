@@ -11,9 +11,9 @@ public class Alumno extends AlumnoAbstracto {
     /* El id del alumno. */
     private int id;
     /* La lista de materias del alumno. */
-    private Lista materias;
+    private ListaMaterias materias;
     /* La lista de profesores del alumno. */
-    private Lista profesores;
+    private ListaProfesores profesores;
 
     /**
      * Constructor que define el estado inicial del alumno.
@@ -96,15 +96,15 @@ public class Alumno extends AlumnoAbstracto {
 
     /**
      * Regresa la calificacion del alumno de la materia especificada.
-     * @param materia la materia de la que consultaremos la calificación.
+     * @param nombre la materia de la que consultaremos la calificación.
      * @return la calificacion del alumno de la materia especificada.
      */
-    @Override public int consultarCalificacion(String materia) {
-        Iterador<Materia> iterador = materias.creaIterador();
+    @Override public int consultarCalificacion(String nombre) {
+        Iterador<Object> iterador = materias.creaIterador();
         while (iterador.hasNext()) {
-            Materia m = iterador.next();
-            if (materia.equals(m.getNombre()))
-                return m.getCalificacion();
+            Materia materia = (Materia)iterador.next();
+            if (nombre.equals(materia.getNombre()))
+                return materia.getCalificacion();
             continue;
         }
         System.out.println("No se encontró la materia.");
@@ -134,7 +134,7 @@ public class Alumno extends AlumnoAbstracto {
      * @return una representación en cadena del componente.
      */
     @Override public String toString() {
-        return this.getID().toString() + ": " + this.getNombre();
+        return this.getID() + ": " + this.getNombre();
     }
 
     /**

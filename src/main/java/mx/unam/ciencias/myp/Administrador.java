@@ -9,7 +9,7 @@ import java.util.Map;
 public class Administrador extends Usuario {
 
     /* La lista de profesores. */
-    private Lista profesores;
+    private ListaProfesores profesores;
 
     /**
      * Constructor que define el estado incial del administrador.
@@ -26,14 +26,14 @@ public class Administrador extends Usuario {
      * @return el alumno cuyo id es igual al recibido como parámetro.
      */
     public AlumnoAbstracto getAlumno(int id) {
-        Iterador<Profesor> iteradorP = profesores.creaIterador();
+        Iterador<Object> iteradorP = profesores.creaIterador();
         while (iteradorP.hasNext()) {
-            Profesor profesor = iteradorP.next();
+            Profesor profesor = (Profesor)iteradorP.next();
             ListaAlumnos alumnosProf = profesor.getListaAlumnos();
-            Iterador<Map.Entry> iteradorM = alumnosProf.creaIterador();
+            Iterador<Object> iteradorM = alumnosProf.creaIterador();
             while (iteradorM.hasNext()) {
                 Map.Entry me = (Map.Entry)iteradorM.next();
-                AlumnoAbstracto alumno = me.getValue();
+                AlumnoAbstracto alumno = (AlumnoAbstracto)me.getValue();
                 if (alumno.getID() == id)
                     return alumno;
                 continue;
@@ -49,9 +49,9 @@ public class Administrador extends Usuario {
      * @return el profesor cuyo id es igual al recibido como parámetro.
      */
     public Profesor getProfesor(int id) {
-        Iterador<Profesor> iteradorP = profesores.creaIterador();
+        Iterador<Object> iteradorP = profesores.creaIterador();
         while (iteradorP.hasNext()) {
-            Profesor profesor = iteradorP.next();
+            Profesor profesor = (Profesor)iteradorP.next();
             if (profesor.getID() == id)
                 return profesor;
             continue;
@@ -66,14 +66,14 @@ public class Administrador extends Usuario {
      */
     public String getAlumnosTotales() {
         ListaAlumnos alumnos = new ListaAlumnos();
-        Iterador<Profesor> iteradorP = profesores.creaIterador();
+        Iterador<Object> iteradorP = profesores.creaIterador();
         while (iteradorP.hasNext()) {
-            Profesor profesor = iteradorP.next();
+            Profesor profesor = (Profesor)iteradorP.next();
             ListaAlumnos alumnosProf = profesor.getListaAlumnos();
-            Iterador<Map.Entry> iteradorM = alumnosProf.creaIterador();
+            Iterador<Object> iteradorM = alumnosProf.creaIterador();
             while (iteradorM.hasNext()) {
                 Map.Entry me = (Map.Entry)iteradorM.next();
-                AlumnoAbstracto alumno = me.getValue();
+                AlumnoAbstracto alumno = (AlumnoAbstracto)me.getValue();
                 if (alumnos.contiene(alumno))
                     continue;
                 else
@@ -108,16 +108,16 @@ public class Administrador extends Usuario {
             System.out.println("No existe el área " + area);
             return "";
         }
-        Iterador<Profesor> iteradorP = profesores.creaIterador();
+        Iterador<Object> iteradorP = profesores.creaIterador();
         while (iteradorP.hasNext()) {
-            Profesor profesor = iteradorP.next();
+            Profesor profesor = (Profesor)iteradorP.next();
             if (materia1.equals(profesor.consultarCurso()) ||
                 materia2.equals(profesor.consultarCurso())) {
                 ListaAlumnos alumnosProf = profesor.getListaAlumnos();
-                Iterador<Map.Entry> iteradorM = alumnosProf.creaIterador();
+                Iterador<Object> iteradorM = alumnosProf.creaIterador();
                 while (iteradorM.hasNext()) {
                     Map.Entry me = (Map.Entry)iteradorM.next();
-                    AlumnoAbstracto alumno = me.getValue();
+                    AlumnoAbstracto alumno = (AlumnoAbstracto)me.getValue();
                     if (alumnos.contiene(alumno))
                         continue;
                     else
@@ -147,15 +147,15 @@ public class Administrador extends Usuario {
             opcionTecnica = "Laboratorista Químico";
         }
         ListaAlumnos alumnos = new ListaAlumnos();
-        Iterador<Profesor> iteradorP = profesores.creaIterador();
+        Iterador<Object> iteradorP = profesores.creaIterador();
         while (iteradorP.hasNext()) {
-            Profesor profesor = iteradorP.next();
+            Profesor profesor = (Profesor)iteradorP.next();
             if (opcionTecnica.equals(profesor.consultarCurso())) {
                 ListaAlumnos alumnosProf = profesor.getListaAlumnos();
-                Iterador<Map.Entry> iteradorM = alumnosProf.creaIterador();
+                Iterador<Object> iteradorM = alumnosProf.creaIterador();
                 while (iteradorM.hasNext()) {
                     Map.Entry me = (Map.Entry)iteradorM.next();
-                    AlumnoAbstracto alumno = me.getValue();
+                    AlumnoAbstracto alumno = (AlumnoAbstracto)me.getValue();
                     alumnos.agrega(alumno);
                 }
                 return alumnos.toString();
@@ -189,9 +189,11 @@ public class Administrador extends Usuario {
                    "Nombre: " + alumno.getNombre() + "\n" +
                    alumno.getMaterias().toString() + "\n" +
                    alumno.getProfesores().toString() + "\n" +
-                   "Promedio: " + alumno.getPromedio().toString() + "\n";
-        if (alumno.tieneOT())
-            s += "Opción Técnica: " + alumno.getOT();
+                   "Promedio: " + alumno.getPromedio() + "\n";
+        if (alumno.tieneOT()) {
+            AlumnoDecorador alumnoD = (AlumnoDecorador)alumno;
+            s += "Opción Técnica: " + alumnoD.getOT();
+        }
         return s;
     }
 
@@ -202,23 +204,23 @@ public class Administrador extends Usuario {
      */
     public void inscribirAlumno(String nombre, int id, ListaMaterias materias) {
         ListaProfesores profesores = new ListaProfesores();
-        Iterador<Profesor> iteradorP = profesores.creaIterador();
+        Iterador<Object> iteradorP = profesores.creaIterador();
         while (iteradorP.hasNext()) {
-            Profesor profesor = iteradorP.next();
-            Iterador<Materia> iteradorM = materias.creaIterador();
+            Profesor profesor = (Profesor)iteradorP.next();
+            Iterador<Object> iteradorM = materias.creaIterador();
             while (iteradorM.hasNext()) {
-                Materia materia = iteradorM.next();
-                if (profesor.getCurso().equals(materia.getNombre()))
+                Materia materia = (Materia)iteradorM.next();
+                if (profesor.consultarCurso().equals(materia.getNombre()))
                     profesores.agrega(profesor);
                 else
                     continue;
             }
         }
         AlumnoAbstracto alumno = new Alumno(nombre, id, materias, profesores);
-        Iterador<Profesor> iterador = profesores.creaIterador();
+        Iterador<Object> iterador = profesores.creaIterador();
         while (iterador.hasNext()) {
-            Profesor profesor = iterador.next();
-            profesor.getListaAlumnos.agrega(alumno);
+            Profesor profesor = (Profesor)iterador.next();
+            profesor.getListaAlumnos().agrega(alumno);
         }
     }
 
@@ -228,14 +230,14 @@ public class Administrador extends Usuario {
      * @param id el id del alumno.
      */
     public void bajaAlumno(int id) {
-        Iterador<Profesor> iteradorP = profesores.creaIterador();
+        Iterador<Object> iteradorP = profesores.creaIterador();
         while (iteradorP.hasNext()) {
-            Profesor profesor = iteradorP.next();
+            Profesor profesor = (Profesor)iteradorP.next();
             ListaAlumnos alumnosProf = profesor.getListaAlumnos();
-            Iterador<Map.Entry> iteradorM = alumnosProf.creaIterador();
+            Iterador<Object> iteradorM = alumnosProf.creaIterador();
             while (iteradorM.hasNext()) {
                 Map.Entry me = (Map.Entry)iteradorM.next();
-                AlumnoAbstracto alumno = me.getValue();
+                AlumnoAbstracto alumno = (AlumnoAbstracto)me.getValue();
                 if (id == alumno.getID())
                     alumnosProf.elimina(alumno);
                 continue;
@@ -253,8 +255,16 @@ public class Administrador extends Usuario {
             System.out.println("Ya no podemos contratar más profesores.");
             return;
         }
-        Profesor profesor = new Profesor(nombre, id, curso.getNombre());
-        profesores.agrega(profesor);
+        if (curso instanceof Materia) {
+            Materia materia = (Materia)curso;
+            Profesor profesor = new Profesor(nombre, id, materia.getNombre());
+            profesores.agrega(profesor);
+        }
+        else if (curso instanceof OpcionTecnica) {
+            OpcionTecnica opcionTecnica = (OpcionTecnica)curso;
+            Profesor profesor = new Profesor(nombre, id, opcionTecnica.getNombre());
+            profesores.agrega(profesor);
+        }
     }
 
     /**
@@ -263,15 +273,15 @@ public class Administrador extends Usuario {
      * @param id el id del profesor.
      */
     public void despedirProfesor(int id) {
-        Iterador<Profesor> iterador = profesores.creaIterador();
+        Iterador<Object> iterador = profesores.creaIterador();
         while (iterador.hasNext()) {
-            Profesor profesor = iterador.next();
+            Profesor profesor = (Profesor)iterador.next();
             if (id == profesor.getID()) {
                 ListaAlumnos alumnosProf = profesor.getListaAlumnos();
-                Iterador<Map.Entry> iteradorM = alumnosProf.creaIterador();
+                Iterador<Object> iteradorM = alumnosProf.creaIterador();
                 while (iteradorM.hasNext()) {
                     Map.Entry me = (Map.Entry)iteradorM.next();
-                    AlumnoAbstracto alumno = me.getValue();
+                    AlumnoAbstracto alumno = (AlumnoAbstracto)me.getValue();
                     alumno.getProfesores().elimina(profesor);
                 }
                 profesores.elimina(profesor);

@@ -29,7 +29,7 @@ public class AlumnoDecorador extends AlumnoAbstracto {
      * @return el nombre del alumno.
      */
     @Override public String getNombre() {
-        return nombre;
+        return alumno.getNombre();
     }
 
     /**
@@ -37,15 +37,32 @@ public class AlumnoDecorador extends AlumnoAbstracto {
      * @return el id del alumno.
      */
     @Override public int getID() {
-        return id;
+        return alumno.getID();
     }
 
     /**
      * Regresa la lista de materias del alumno.
      * @return la lista de materias del alumno.
      */
-    @Override public ArrayList<Materia> getMaterias() {
-        return materias;
+    @Override public ListaMaterias getMaterias() {
+        return alumno.getMaterias();
+    }
+
+    /**
+     * Regresa una materia del alumno.
+     * @param materia la materia a regresar.
+     * @return una materia del alumno.
+     */
+    @Override public Materia getMateria(String nombre) {
+        Iterador<Object> iterador = this.getMaterias().creaIterador();
+        while (iterador.hasNext()) {
+            Materia materia = (Materia)iterador.next();
+            if (materia.getNombre().equals(nombre))
+                return materia;
+            continue;
+        }
+        System.out.println("No se encontró la materia " + nombre + ".");
+        return null;
     }
 
     /**
@@ -53,7 +70,7 @@ public class AlumnoDecorador extends AlumnoAbstracto {
      * @return la lista de profesores del alumno.
      */
     @Override public ListaProfesores getProfesores() {
-        return profesores;
+        return alumno.getProfesores();
     }
 
     /**
@@ -62,12 +79,12 @@ public class AlumnoDecorador extends AlumnoAbstracto {
      */
     @Override public double getPromedio() {
         int suma = 0;
-        Iterador<Materia> iterador = materias.creaIterador();
+        Iterador<Object> iterador = this.getMaterias().creaIterador();
         while (iterador.hasNext()) {
-            Materia materia = iterador.next();
+            Materia materia = (Materia)iterador.next();
             suma += materia.getCalificacion();
         }
-        return suma/materias.longitud();
+        return suma/this.getMaterias().longitud();
     }
 
     /**
@@ -75,12 +92,12 @@ public class AlumnoDecorador extends AlumnoAbstracto {
      * @param materia la materia de la que consultaremos la calificación.
      * @return la calificacion del alumno de la materia especificada.
      */
-    @Override public int consultarCalificacion(String materia) {
-        Iterador<Materia> iterador = materias.creaIterador();
+    @Override public int consultarCalificacion(String nombre) {
+        Iterador<Object> iterador = this.getMaterias().creaIterador();
         while (iterador.hasNext()) {
-            Materia m = iterador.next();
-            if (m.equals(materia))
-                return m.getCalificacion();
+            Materia materia = (Materia)iterador.next();
+            if (materia.getNombre().equals(nombre))
+                return materia.getCalificacion();
             iterador.next();
         }
         System.out.println("No se encontró la matria");
@@ -119,7 +136,7 @@ public class AlumnoDecorador extends AlumnoAbstracto {
      * @return una representación en cadena del componente.
      */
     @Override public String toString() {
-        return this.getID().toString + ": " + this.getNombre();
+        return this.getID() + ": " + this.getNombre();
     }
 
     /**
