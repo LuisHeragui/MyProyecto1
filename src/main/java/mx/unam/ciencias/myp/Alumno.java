@@ -90,16 +90,18 @@ public class Alumno extends AlumnoAbstracto {
                 return m.getCalificacion();
             continue;
         }
-        System.out.println("No se encontró la materia en las materias.");
+        System.out.println("No se encontró la materia.");
         return -1;
     }
 
     /**
-     * Inscribe una opción técnica.
+     * Inscribe una opción técnica y regresa al alumno actualizado con la opción
+     * técnica que esta cursando.
      * @param opcionTecnica la opción técnica a inscribir.
+     * @return el alumno actualizado.
      */
-    public void inscribirOT(String opcionTecnica) {
-        //Aquí va el código.
+    public AlumnoDecorador inscribirOT(OpcionTecnica opcionTecnica) {
+        return new AlumnoDecorador(this, opcionTecnica);
     }
 
     /**
