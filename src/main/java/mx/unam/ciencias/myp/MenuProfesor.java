@@ -12,7 +12,7 @@ public class MenuProfesor implements Menu {
 		String s = "1.- Consultar Lista de Alumnos.\n" +
 				   "2.- Consultar Grupo.\n" +
 				   "3.- Consultar Curso que esta Impartiendo.\n" +
-				   "4.- Asignar Califiones a cada Alumno.\n" +
+				   "4.- Asignar Calificación a un Alumno.\n" +
 				   "0.- Salir.\n";
 		System.out.println(s);
 	}
