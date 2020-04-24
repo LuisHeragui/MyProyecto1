@@ -119,9 +119,7 @@ public class Alumno extends AlumnoAbstracto {
             Materia materia = (Materia)iterador.next();
             if (nombre.equals(materia.getNombre()))
                 return materia.getCalificacion();
-            continue;
         }
-        System.out.println("No se encontró la materia.");
         return -1;
     }
 
