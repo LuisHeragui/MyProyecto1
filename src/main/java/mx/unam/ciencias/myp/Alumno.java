@@ -131,7 +131,9 @@ public class Alumno extends AlumnoAbstracto {
      */
     @Override public AlumnoDecorador inscribirOT(OpcionTecnica opcionTecnica) {
         System.out.println("Inscrito correctamente.");
-        return new AlumnoDecorador(this, opcionTecnica);
+        AlumnoDecorador alumno = new AlumnoDecorador(this, opcionTecnica);
+        opcionTecnica.getProfesor().getListaAlumnos().agrega(alumno);
+        return alumno;
     }
 
     /**

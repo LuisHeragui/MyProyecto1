@@ -258,13 +258,23 @@ public class Administrador extends Usuario {
             Materia materia = (Materia)curso;
             Profesor profesor = new Profesor(nombre, id, materia.getNombre(), materia.getGrupo());
             profesores.agrega(profesor);
-            System.out.println("Profesor contratado.");
+            if (materia.getProfesor() == null) {
+                materia.setProfesor(profesor);
+                System.out.println("Profesor contratado.");
+            } else {
+                System.out.println("El grupo no está disponible..");
+            }
         }
         else if (curso instanceof OpcionTecnica) {
             OpcionTecnica opcionTecnica = (OpcionTecnica)curso;
             Profesor profesor = new Profesor(nombre, id, opcionTecnica.getNombre(), opcionTecnica.getGrupo());
             profesores.agrega(profesor);
-            System.out.println("Profesor contratado.");
+            if (opcionTecnica.getProfesor() == null) {
+                opcionTecnica.setProfesor(profesor);
+                System.out.println("Profesor contratado.");
+            } else {
+                System.out.println("El grupo no está disponible..");
+            }
         } else
             return;
     }
@@ -279,9 +289,27 @@ public class Administrador extends Usuario {
             Profesor profesor = (Profesor)iterador.next();
             if (id == profesor.getID()) {
                 ListaAlumnos alumnosProf = profesor.getListaAlumnos();
-                Iterador<Object> iteradorM = alumnosProf.creaIterador();
-                while (iteradorM.hasNext()) {
-                    AlumnoAbstracto alumno = (AlumnoAbstracto)iteradorM.next();
+                Iterador<Object> iteradorA = alumnosProf.creaIterador();
+                if (iteradorA.hasNext()) {
+                    AlumnoAbstracto alumno = (AlumnoAbstracto)iteradorA.next();
+                    alumno.getProfesores().elimina(profesor);
+                    ListaMaterias materias = alumno.getMaterias();
+                    Iterador<Object> iteradorM = materias.creaIterador();
+                    while (iteradorM.hasNext()) {
+                        Object o = iteradorM.next();
+                        if (o instanceof Materia) {
+                            Materia materia = (Materia)o;
+                            if (materia.getNombre().equals(profesor.consultarCurso()))
+                                materia.setProfesor(null);
+                        } else {
+                            OpcionTecnica ot = (OpcionTecnica)o;
+                            if (ot.getNombre().equals(profesor.consultarCurso()))
+                                ot.setProfesor(null);
+                        }
+                    }
+                }
+                while (iteradorA.hasNext()) {
+                    AlumnoAbstracto alumno = (AlumnoAbstracto)iteradorA.next();
                     alumno.getProfesores().elimina(profesor);
                 }
                 profesores.elimina(profesor);
