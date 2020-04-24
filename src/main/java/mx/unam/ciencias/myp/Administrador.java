@@ -188,8 +188,9 @@ public class Administrador extends Usuario {
                    "Promedio: " + alumno.getPromedio() + "\n";
         if (alumno.tieneOT()) {
             AlumnoDecorador alumnoD = (AlumnoDecorador)alumno;
-            s += "Opción Técnica: " + alumnoD.getOT();
+            s += "Opción Técnica: \n" + alumnoD.getOT();
         }
+        s += "-------------------------";
         return s;
     }
 

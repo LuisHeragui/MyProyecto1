@@ -326,7 +326,7 @@ public class ProyectoMain{
 																imprime("\nEscriba el nombre del alumno.\n");
 																String nombre = sc.next();
 																administrador.inscribirAlumno(nombre, idAlumno++, materias);
-																imprime("\nAlumno " + nombre + " inscrito.\n");
+																imprime("\nAlumno " + nombre + " " + " inscrito.\n");
 																break;
 															case 2:
 																materias2.limpia();
@@ -662,7 +662,7 @@ public class ProyectoMain{
 								if (sc.hasNextInt()) {
 									opcion = sc.nextInt();				//hacer método
 									Profesor profesor = administrador.getProfesor(opcion);
-									imprime("\nBienvenido, profesor " +
+									imprime("\nBienvenido, profesor(a) " +
 											profesor.getNombre() + "\n");
 									profesor.imprimirMenu();
 									imprime("\n¿Qué desea hacer?\n");
@@ -673,7 +673,9 @@ public class ProyectoMain{
 												switch (opcion) {
 													case 1:
 														limpiaPantalla();
-														imprime(profesor.getListaAlumnos().toString());
+														imprime("ALUMNOS\n" +
+																"-------\n" +
+																profesor.getListaAlumnos().toString());
 														imprime("\n\n¿Qué más desea hacer?\n");
 														profesor.imprimirMenu();
 														while (sc.hasNext()) {
@@ -727,7 +729,9 @@ public class ProyectoMain{
 
 													case 4:
 														limpiaPantalla();
-														imprime(profesor.getListaAlumnos().toString()
+														imprime("ALUMNOS\n" +
+																"-------\n" +
+																profesor.getListaAlumnos().toString()
 																+ "\nDigite el id del alumno " +
 																"al que se le asignará una calificación.\n");
 														while (sc.hasNext()) {
@@ -811,7 +815,8 @@ public class ProyectoMain{
 
 						case 3:
 							limpiaPantalla();
-							imprime("\n" + administrador.getAlumnosTotales() +
+							imprime("ALUMNOS\n" +
+							 		"-------\n" + administrador.getAlumnosTotales() +
 									"\n\nIngrese su id.\n");
 							while (sc.hasNext()) {
 								if (sc.hasNextInt()) {
@@ -825,6 +830,7 @@ public class ProyectoMain{
 										sc = new Scanner(System.in);
 										continue;
 									}
+									limpiaPantalla();
 									imprime("\nBienvenido, " +
 											alumno.getNombre() +
 									 		"\n¿Qué desea hacer?\n");
