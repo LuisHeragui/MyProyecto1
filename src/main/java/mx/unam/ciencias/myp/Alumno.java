@@ -61,7 +61,7 @@ public class Alumno extends AlumnoAbstracto {
      */
     @Override public String getNombreMaterias() {
         String s = "";
-        Iterador<Object> iterador = materias.creaIterador();
+        Iterador<Object> iterador = this.materias.creaIterador();
         while (iterador.hasNext()) {
             Materia materia = (Materia)iterador.next();
             s += materia.getNombre() + "\n";

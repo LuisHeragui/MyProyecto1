@@ -798,6 +798,14 @@ public class ProyectoMain{
 								if (sc.hasNextInt()) {
 									opcion = sc.nextInt();			//hacer método
 									AlumnoAbstracto alumno = administrador.getAlumno(opcion);
+									if (alumno == null) {
+										limpiaPantalla();
+										imprime("ID incorrecto. Vuelve a intentarlo. \n");
+										imprime("\n" + administrador.getAlumnosTotales() +
+												"\n\nIngrese su id.\n");
+										sc = new Scanner(System.in);
+										continue;
+									}
 									imprime("\nBienvenido, " +
 											alumno.getNombre() +
 									 		"\n¿Qué desea hacer?\n");
@@ -809,7 +817,7 @@ public class ProyectoMain{
 												switch (opcion) {
 													case 1:
 														limpiaPantalla();
-														imprime(alumno.getNombreMaterias());
+														imprime(alumno.getMaterias().toString());
 														imprime("\nEscriba correctamente el nombre de la materia " +
 																"que desea consultar.\n");
 														String materia = sc.nextLine();
