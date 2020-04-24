@@ -132,6 +132,7 @@ public class Alumno extends AlumnoAbstracto {
      * @return el alumno actualizado.
      */
     @Override public AlumnoDecorador inscribirOT(OpcionTecnica opcionTecnica) {
+        System.out.println("Inscrito correctamente.");
         return new AlumnoDecorador(this, opcionTecnica);
     }
 

@@ -183,8 +183,8 @@ public class Administrador extends Usuario {
         String s = "CERTIFICADO DE GRADUACIÓN\n" +
                    "-------------------------\n" +
                    "Nombre: " + alumno.getNombre() + "\n" +
-                   alumno.getMaterias().toString() + "\n" +
-                   alumno.getProfesores().toString() + "\n" +
+                   "Materias: " + alumno.getMaterias().toString() + "\n" +
+                   "Profesores: " + alumno.getProfesores().toString() + "\n" +
                    "Promedio: " + alumno.getPromedio() + "\n";
         if (alumno.tieneOT()) {
             AlumnoDecorador alumnoD = (AlumnoDecorador)alumno;
@@ -257,12 +257,15 @@ public class Administrador extends Usuario {
             Materia materia = (Materia)curso;
             Profesor profesor = new Profesor(nombre, id, materia.getNombre(), materia.getGrupo());
             profesores.agrega(profesor);
+            System.out.println("Profesor contratado.");
         }
         else if (curso instanceof OpcionTecnica) {
             OpcionTecnica opcionTecnica = (OpcionTecnica)curso;
             Profesor profesor = new Profesor(nombre, id, opcionTecnica.getNombre(), opcionTecnica.getGrupo());
             profesores.agrega(profesor);
-        }
+            System.out.println("Profesor contratado.");
+        } else
+            return;
     }
 
     /**
@@ -277,7 +280,7 @@ public class Administrador extends Usuario {
                 ListaAlumnos alumnosProf = profesor.getListaAlumnos();
                 Iterador<Object> iteradorM = alumnosProf.creaIterador();
                 while (iteradorM.hasNext()) {
-                    AlumnoAbstracto alumno = (AlumnoAbstracto)iterador.next();
+                    AlumnoAbstracto alumno = (AlumnoAbstracto)iteradorM.next();
                     alumno.getProfesores().elimina(profesor);
                 }
                 profesores.elimina(profesor);

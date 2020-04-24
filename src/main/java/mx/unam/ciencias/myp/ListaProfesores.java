@@ -99,13 +99,24 @@ public class ListaProfesores implements Lista {
      * @param profesor el profesor a eliminar.
      */
     @Override public void elimina(Object objeto) {
-        Profesor profesor = (Profesor)objeto;
-        for (int i = 0; i < profesores.length; i++)
-            if (profesores[i].equals(profesor))
-                profesores[i] = null;
-            else
-                continue;
-        selectionSort(profesores);
+        Profesor[] copia = new Profesor[MAX_ITEMS];
+        int p = 0;
+        if (objeto instanceof Profesor) {
+            Profesor profesor = (Profesor)objeto;
+            if (profesor == null)
+                return;
+            for (int i = 0; i < profesores.length; i++)
+                if (profesores[i] == profesor) {
+                    continue;
+                } else {
+                    copia[p] = profesores[i];
+                    p++;
+                }
+            selectionSort(copia);
+            profesores = copia;
+            return;
+        }
+        return;
     }
 
     /**
